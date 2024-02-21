@@ -1,0 +1,46 @@
+{
+    "shoes": [
+        {
+            "id": 1,
+            "title": "PUMA",
+            "img":"images/shoe4.jpg",
+            "price": "$100"
+        },
+        {
+            "id": 2,
+            "title": "CROCS",
+            "img":"images/shoe2.jpg",
+            "completed": false
+        },
+        {
+            "id": 3,
+            "title": "FORMALS",
+            "img":"images/shoe5.jpg",
+            "completed": false
+        },
+        {
+            "id": 4,
+            "title": "CROCS",
+            "img":"images/shoe3.jpg",
+            "completed": false
+        },
+        {
+            "id": 5,
+            "title": "CROCS",
+            "img":"images/shoe1.jpg",
+            "completed": false
+        },
+        {
+            "id": 6,
+            "title": "CROCS",
+            "img":"images/shoe6.jpg",
+            "completed": false
+        },
+        {
+            "id": 7,
+            "title": "CROCS",
+            "img":"images/shoe7.jpg",
+            "completed": false
+        }
+    ]
+}

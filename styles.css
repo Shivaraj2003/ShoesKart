@@ -1,0 +1,25 @@
+.navbar-brand{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #160202;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to right, #f094c9, #f4c270);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar{
+    height: 10vh;
+    background: #e5dfdf;
+}
+
+.carousel {
+  height: 40vh;
+  width: 100vw;
+}
+
+.card-img-top{
+  object-fit: cover;
+}
