@@ -21,11 +21,12 @@ function displayData(items) {
   for (let i = 0; i < items.length; i++) {
     const product = items[i];
     displayContainer.innerHTML += `
-      <div class="card col-md-4 p-2 ">
+      <div class="card col-md-3 p-2 " id="cardItem">
         <div class="card-body">
           <h3 class="card-title">${product.title}</h3>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">${product.brand}</h6>
           <img src="${product.img}" class="card-img-top" alt="..." height="200" width="200" >
+          <h3 class=" mt-2">${product.price}</h3>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <button class="cart" id=${product.id}>Cart</button>
           <button class="buy">Buy</button>
@@ -69,7 +70,7 @@ function filterProducts(searchInput) {
 let filteredProducts = [];
   for(let i=0 ; i<products.length;i++)
   {
-    if(products[i].title.toLowerCase().includes(searchInput.toLowerCase()))
+    if((products[i].title.toLowerCase().includes(searchInput.toLowerCase()) ) || (products[i].brand.toLowerCase().includes(searchInput.toLowerCase()) ))
     {
       filteredProducts.push(products[i]);
     }
