@@ -7,7 +7,7 @@ var cart ={} ;
 
 async function loadDataAndDisplay() {
   try {
-    const response = await fetch("../data.json");
+    const response = await fetch("data.json");
     const data = await response.json();
     products = data.shoes;
     displayData(products);
