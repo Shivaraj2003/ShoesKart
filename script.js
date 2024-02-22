@@ -21,7 +21,7 @@ function displayData(items) {
   for (let i = 0; i < items.length; i++) {
     const product = items[i];
     displayContainer.innerHTML += `
-      <div class="card col-md-3 p-2 " id="cardItem">
+      <div class="card col-md-3 p-2 cardItem">
         <div class="card-body">
           <h3 class="card-title">${product.title}</h3>
           <h6 class="card-subtitle mb-2 text-body-secondary">${product.brand}</h6>
@@ -39,10 +39,8 @@ function displayData(items) {
 
 
 const cartItems = document.querySelectorAll('.cart');
-
   for (let i = 0; i < cartItems.length; i++) {
   const button = cartItems[i];
-
   button.addEventListener('click', () => {
   const productId = button.id;
       
@@ -65,6 +63,7 @@ const cartItems = document.querySelectorAll('.cart');
 }
 
 loadDataAndDisplay();
+
 function filterProducts(searchInput) {
   
 let filteredProducts = [];
@@ -77,12 +76,14 @@ let filteredProducts = [];
   }
 
   if(filteredProducts.length!==0){
-    // homePage.style.display = "none";
      displayData(filteredProducts);
+     displayContainer.scrollIntoView({ behavior: 'smooth' });
+
      
   }
   else{
-    displayContainer.innerHTML = `<h1>Oops we dont have ${searchInput} right now</h1>`
+    displayContainer.innerHTML = `<h1>Oops we dont have ${searchInput} right now</h1>`;
+    displayContainer.scrollIntoView({ behavior: 'smooth' });
   }
 }
 
@@ -92,8 +93,9 @@ document.querySelector("#search").addEventListener("click", () => {
     alert("Kindly enter search value");
   else{
   filterProducts(searchInput);
-  homePage.innerHTML = displayContainer.innerHTML;
-  displayContainer.innerHTML = '';
+  //homePage.style.height = "0";
+  // homePage.innerHTML = displayContainer.innerHTML;
+  // displayContainer.innerHTML = '';
   document.querySelector("#searchInp").value='';
    //to make the display container empty
   }
@@ -119,24 +121,27 @@ function getCart(){
   console.log(cartStore);
   
   displayCartData(cartStore);
+  displayContainer.scrollIntoView({ behavior: 'smooth' });
    
 
 }
 
 function displayCartData(items) {
-  homePage.innerHTML = "";
   displayContainer.innerHTML = '';
   for (let i = 0; i < items.length; i++) {
     const product = items[i];
-    homePage.innerHTML += `
-      <div class="card col-md-4 p-2">
+    displayContainer.innerHTML += `
+      <div class="card col-md-3 p-2 cardItem">
         <div class="card-body">
           <h3 class="card-title">${product.title}</h3>
           <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
           <img src="${product.img}" class="card-img-top" alt="..." height="350" width="350">
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <button class="cartRemove" id=${product.id}>Remove</button>
+          <button class="cartRemove bg-danger" id=${product.id}>Remove</button>
+
           <a href="#" class="btn btn-primary">Buy</a>
+           <button class="" id=${product.id}>${cart[product.id]}</button>
+
         </div>
       </div>
     `;
@@ -169,8 +174,7 @@ if(cartRemoveItems.length==0)
 {
   displayContainer.innerHTML = `<h1>Add something to cart</h1>;
   <a href=index.html>Go to home page</a>`;
-  homePage.innerHTML = displayContainer.innerHTML;
-  displayContainer.innerHTML = ''; 
+  
 }
 }
 
