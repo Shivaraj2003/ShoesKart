@@ -1,3 +1,23 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    font-family: 'Poppins';
+    background-color: #f1f1f1;
+
+}
+
+
+
+h1{
+    font-family: 'Bebas Neue';
+    font-size: 80px;
+    color: #363958;
+    padding: 0;
+    margin: 0;
+}
+
+
 .navbar-brand{
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
@@ -10,16 +30,88 @@
   cursor: pointer;
 }
 
+
 .navbar{
-    height: 10vh;
-    background: #e5dfdf;
+    height: auto;
+    margin-bottom: 7%;
+    padding: 10px;
+    margin-top: 20px;
 }
 
-.carousel {
-  height: 40vh;
-  width: 100vw;
+
+#header{
+    height: 100vh;
 }
 
-.card-img-top{
-  object-fit: cover;
+#cover{
+    height: auto;
 }
+
+
+#explore {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+.card {
+    border: 3px solid #0b0a0a;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+
+.card-subtitle {
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+
+.card-img-top {
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+    
+}
+
+.cart,
+.buy {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.cart {
+    background-color: #f0ad4e;
+    color: #fff;
+}
+
+.buy {
+    background-color: #6d9b18;
+    color: #fff;
+}
+
+
+
+
