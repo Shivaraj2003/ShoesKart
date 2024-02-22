@@ -88,10 +88,15 @@ let filteredProducts = [];
 
 document.querySelector("#search").addEventListener("click", () => {
   const searchInput = document.querySelector("#searchInp").value;
+  if(searchInput.trim().length===0)
+    alert("Kindly enter search value");
+  else{
   filterProducts(searchInput);
   homePage.innerHTML = displayContainer.innerHTML;
-  displayContainer.innerHTML = ''; //to make the display container empty
-  
+  displayContainer.innerHTML = '';
+  document.querySelector("#searchInp").value='';
+   //to make the display container empty
+  }
 });
 
 

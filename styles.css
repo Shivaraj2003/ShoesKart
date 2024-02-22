@@ -138,3 +138,8 @@ footer{
     align-items: center;
     justify-content: center;
 }
+
+#my_cart{
+    border: none;
+    padding: 15px;
+}
