@@ -1,5 +1,5 @@
 const displayContainer = document.getElementById("productContainer");
- const cartContainer = document.getElementById("cartContainer");
+ //const cartContainer = document.getElementById("cartContainer");
 // console.log(cartContainer);
 const homePage = document.getElementById("cover");
 
@@ -23,33 +23,24 @@ function displayData(items) {
   for (let i = 0; i < items.length; i++) {
     const product = items[i];
     displayContainer.innerHTML += `
-      <div class="card col-md-3 p-2 cardItem">
-        <div class="card-body">
+      <div class="card col-md-3 p-2 cardItem " style="width: 20rem; height:700px">
+        <div class="card-body"  style=" height:80vh">
           <h3 class="card-title">${product.title}</h3>
-          <h6 class="card-subtitle mb-2 text-body-secondary">${product.brand}</h6>
-          
-          <img src="${product.img}" class="card-img-top" alt="..."  >
-          <div>
-                      <h3 class=" mt-2">${product.rating}</h3>
-          $for(let i = 0;i<${product.rating};i++)
-          {
-                          <span class="fa fa-star checked"></span>
-
-          }
-            
-                        <h3 class=" mt-2"><span>${product.color}</h3>
-
-          </div>
-          <h3 class=" mt-2">Price:<span>&#8377;</span>${product.price}</h3>
+          <h5 class="card-subtitle mb-2 text-body-secondary">${product.brand}</h5>
+          <img src="${product.img}" class="card-img-top" alt="..."  style="height: 30%; width:100%">
+          <h5 class=" m-3 p-2 border border-black border-2 shadow fw-bolder d-flex justify-content-center">${product.rating} <span class="fa fa-star checked"></span></h5>
+          <h5 class=" m-3 p-2 border border-red border-2 shadow fw-bolder d-flex justify-content-center" style="background-color:light${product.color}">${product.color}</h5>
+          <h5 class=" m-3 p-2 shadow fw-bolder d-flex justify-content-center">Price:<span>&#8377;</span>${product.price}</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <button class="cart" id=${product.id}>Cart</button>
-          <button class="buy">Buy</button>
+          <div class="d-flex justify-content-center gap-3">
+          <button class="cart fw-bold shadow" id=${product.id}>Cart</button>
+          <button class="buy fw-bold bg-primary shadow">Buy</button>
+          </div>
         </div>
       </div>
-    `;
+    `;    
   }
   
-
 
 
 const cartItems = document.querySelectorAll('.cart');
@@ -197,3 +188,11 @@ if(cartRemoveItems.length==0)
 }
 }
 
+
+function rating(num)
+{
+  for(let i=0;i<num;i++)
+  {
+
+  }
+}

@@ -6,7 +6,7 @@
             "title" :"ROYCE-2 Blue ",
             "img":"images/shoe9.jpg",
             "size":6,
-            "color":"blue",
+            "color":"white",
             "price": 499,
             "rating":4
         },
@@ -15,7 +15,10 @@
             "brand": "CROCS",
             "title" :"ROYCE-2 Blue ",
             "img":"images/shoe2.jpg",
-            "price": 800
+            "price": 800,
+            "size":6,
+            "color":"yellow",
+            "rating":4
         },
         {
             "id": 3,

@@ -32,13 +32,13 @@ h1{
 
 
 #header{
-    height: 100vh;
+    height: 100%;
 }
 
 
-#display{
-    margin-top: 20px;
-}
+/* #display{
+    margin-top: 2%;
+} */
 
 #productContainer{
     display: flex;
@@ -65,13 +65,13 @@ h1{
     border-radius: 2px;
     margin-bottom: 20px;
     margin-left: 10px;
-    background-color: #e1edec;
 
 }
 
 
 .card-body {
-    padding: 1.5rem;
+    padding: 1rem;
+    padding-bottom: 0;
 }
 
 
@@ -85,14 +85,12 @@ h1{
 
 .card-subtitle {
     color: #888;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 
 .card-img-top {
-    object-fit: cover;
-    width: 100%;
-    
+    object-fit: cover;    
 }
 
 .cart,
@@ -114,11 +112,7 @@ h1{
     color: #fff;
 }
 
-.cardItem{
-    /* background-color: #cdeaef; */
-    min-height: 50vh;
 
-}
 
 
 footer{
@@ -185,4 +179,29 @@ ul{
 
 .checked {
   color: orange;
+}
+
+.rating{
+    background-color: red;
+}
+
+
+
+@media (min-width:320px ) and (max-width:480px ) {
+
+
+h1{
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+#explore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+
 }
