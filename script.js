@@ -1,4 +1,6 @@
 const displayContainer = document.getElementById("productContainer");
+ const cartContainer = document.getElementById("cartContainer");
+// console.log(cartContainer);
 const homePage = document.getElementById("cover");
 
 var products ;
@@ -25,8 +27,20 @@ function displayData(items) {
         <div class="card-body">
           <h3 class="card-title">${product.title}</h3>
           <h6 class="card-subtitle mb-2 text-body-secondary">${product.brand}</h6>
-          <img src="${product.img}" class="card-img-top" alt="..." height="200" width="200" >
-          <h3 class=" mt-2">${product.price}</h3>
+          
+          <img src="${product.img}" class="card-img-top" alt="..."  >
+          <div>
+                      <h3 class=" mt-2">${product.rating}</h3>
+          $for(let i = 0;i<${product.rating};i++)
+          {
+                          <span class="fa fa-star checked"></span>
+
+          }
+            
+                        <h3 class=" mt-2"><span>${product.color}</h3>
+
+          </div>
+          <h3 class=" mt-2">Price:<span>&#8377;</span>${product.price}</h3>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <button class="cart" id=${product.id}>Cart</button>
           <button class="buy">Buy</button>
@@ -67,6 +81,7 @@ loadDataAndDisplay();
 function filterProducts(searchInput) {
   
 let filteredProducts = [];
+
   for(let i=0 ; i<products.length;i++)
   {
     if((products[i].title.toLowerCase().includes(searchInput.toLowerCase()) ) || (products[i].brand.toLowerCase().includes(searchInput.toLowerCase()) ))
@@ -105,7 +120,10 @@ document.querySelector("#search").addEventListener("click", () => {
 
 document.querySelector("#my_cart").addEventListener("click", () => {
  
-getCart();
+//getCart();
+  // cartContainer.innerHTML = `<h1>This is cart</h1>`;
+  window.location.href = 'cart.html';
+
   
 });
 
@@ -169,6 +187,7 @@ function displayCartData(items) {
     }
   });
 }
+
 
 if(cartRemoveItems.length==0)
 {

@@ -4,7 +4,6 @@
 body{
     font-family: 'Poppins';
     background-color: #f1f1f1;
-
 }
 
 
@@ -24,22 +23,17 @@ h1{
 
 
 
-.navbar{
+.navMenu{
     height: auto;
     margin-bottom: 4%;
     padding: 10px;
     margin-top: 8px;
-   
 }
 
 
 #header{
     height: 100vh;
 }
-
-/* #cover{
-    height: auto;
-   } */
 
 
 #display{
@@ -65,13 +59,14 @@ h1{
     font-weight: bold;
 }
 
+
 .card {
-    border: 3px solid #0b0a0a;
+    border: 1px solid #0b0a0a;
     border-radius: 2px;
     margin-bottom: 20px;
     margin-left: 10px;
     background-color: #e1edec;
-    height: auto;    
+
 }
 
 
@@ -144,12 +139,16 @@ footer{
 }
 
 #searchInp{
-    border: 0;
-        border-bottom: 2px solid #000; 
-        height: 50px;
+                height: 50px;
+                border: 0;
 
 }
 
+#searchBox{
+        border: 2px;
+        border-bottom: 2px solid #000; 
+        background-color: whitesmoke;
+}
 #searchContainer{
     display: flex;
     align-items: center;
@@ -175,4 +174,15 @@ ul{
 .desc{
     margin-top: 5px;
     line-height: 2;
+}
+
+.bg-image {
+  background-image: url('images/shoe9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.checked {
+  color: orange;
 }
