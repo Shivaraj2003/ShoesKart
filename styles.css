@@ -57,6 +57,8 @@ h1{
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
+    margin: auto;
+    display: flex;
 }
 
 
@@ -71,7 +73,7 @@ h1{
 
 .card-body {
     padding: 1rem;
-    padding-bottom: 0;
+    
 }
 
 
@@ -90,7 +92,7 @@ h1{
 
 
 .card-img-top {
-    object-fit: cover;    
+    object-fit: contain;    
 }
 
 .cart,
@@ -213,3 +215,28 @@ h1{
 
 
 }
+
+@media(max-width:666px) and (min-width:480px)
+{
+   .cardItem{ 
+    width: 27rem;
+    height: 600px;
+   }
+}
+
+@media(max-width:480px) and (min-width:320px)
+{
+   .cardItem{ 
+    width: 27rem;
+    height: 600px;
+   }
+}
+
+@media(min-width:666px)
+{
+   .cardItem{ 
+    width: 20rem;
+    height: 620px;
+   }
+}
+

@@ -23,7 +23,7 @@ function displayData(items) {
   for (let i = 0; i < items.length; i++) {
     const product = items[i];
     displayContainer.innerHTML += `
-      <div class="card col-md-3 p-2 cardItem " style="width: 20rem; height:620px">
+      <div class="card col-md-3 p-2 cardItem " >
         <div class="card-body"  style=" height:50%">
           <h3 class="card-title">${product.title}</h3>
           <h5 class="card-subtitle mb-2 text-body-secondary">${product.brand}</h5>
