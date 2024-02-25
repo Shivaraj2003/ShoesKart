@@ -157,6 +157,8 @@ footer{
     align-items: center;
     justify-content: space-between;
     padding-left: 10px;
+    width:100%;
+    margin-right: 2%;
    
 }
 
@@ -227,7 +229,7 @@ h1{
 @media(max-width:480px) and (min-width:320px)
 {
    .cardItem{ 
-    width: 27rem;
+    width: 20rem;
     height: 600px;
    }
 }

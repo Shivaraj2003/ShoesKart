@@ -15,37 +15,52 @@
 
 <body>
     <header id="header">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-            <div class="container-fluid">
-                <div>
-                    <a class="navbar-brand" href="#">
-                        <span class="custom-highlight">ShoezKart</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary navMenu">
+      <div class="container-fluid ">
+        <div class="container-fluid">
+          <div class="d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="index.html">
+              <span class="custom-highlight">ShoezKart</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
 
-                <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-between">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#display">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
+
+        <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
+          <ul class="navbar-nav m-auto mb-2 mb-lg-0 d-flex justify-content-between">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#display">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+
+      <div class="d-flex flex-row mt-3" role="search" id="searchContainer">
+        <div id="searchBox" class="d-flex align-content-center p-1 justify-content-center shadow">
+          <input class="form-control m-0  pe-0" type="search" placeholder="Discover Your Sole Mate..." size="50"
+            aria-label="Search" id="searchInp">
+          <button class="btn " type="submit" id="search"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
+        </div>
+        <button class="btn " type="submit" id="my_cart"><i class="fa-solid fa-cart-shopping fa-2xl"></i></button>
+      </div>
+    </nav>
 
 
         <div class="container-fluid px-5 my-5">
@@ -120,9 +135,9 @@
                         class="fa-brands fa-twitter fa-2xl"></i></a>
             </div>
 
-            <div class="text-center text-white p-3">
+            <div class="text-center  p-3">
                 © 2024 Copyright:
-                <span class="text-white">Shivaraj Shetty</span>
+                <span >Shivaraj Shetty</span>
             </div>
         </footer>
     </div>
