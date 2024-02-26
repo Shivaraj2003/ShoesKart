@@ -1,5 +1,6 @@
 const displayContainer = document.getElementById("productContainer");
 const homePage = document.getElementById("cover");
+const count = document.querySelector('.badge');
 
 var products ;
 var cart ={} ;
@@ -36,7 +37,9 @@ function displayData(items) {
           </div>
         </div>
       </div>
-    `;    
+    `;  
+    const cartData = JSON.parse(localStorage.getItem('cart'))||[];
+      count.innerHTML = cartData.length;  
   }
   
 
@@ -50,6 +53,7 @@ const cartItems = document.querySelectorAll('.cart');
 
   const cartData = JSON.parse(localStorage.getItem('cart'))||[];
 
+
     if (cartData.hasOwnProperty(productId)) {
 alert('Already entered to cart')   ;
  } 
@@ -60,7 +64,8 @@ alert('Already entered to cart')   ;
 
       cartData.push(products[productId]);
       localStorage.setItem('cart', JSON.stringify(cartData));
-      location.reload();
+      
+     // location.reload();
       
 
     }
@@ -192,5 +197,3 @@ if(cartRemoveItems.length==0)
 }
 }
 
-const cartCount = JSON.parse(localStorage.getItem('cart'))|| [];
-document.querySelector('.badge').innerText = cartCount.length;
