@@ -1,10 +1,7 @@
 const displayContainer = document.getElementById("productContainer");
- //const cartContainer = document.getElementById("cartContainer");
-// console.log(cartContainer);
 const homePage = document.getElementById("cover");
 
 var products ;
-
 var cart ={} ;
 
 async function loadDataAndDisplay() {
@@ -46,20 +43,32 @@ function displayData(items) {
 const cartItems = document.querySelectorAll('.cart');
   for (let i = 0; i < cartItems.length; i++) {
   const button = cartItems[i];
+
+  
+
   button.addEventListener('click', () => {
   const productId = button.id;
+  const cartData = JSON.parse(localStorage.getItem('cart'));
+  
+
+ 
       
     if (cart.hasOwnProperty(productId)) {
-      cart[productId] += 1;
-      button.textContent = "added";
-      button.style.color = 'green';
-      
+      cart[productId] += 1;  
       console.log('Already have product:',productId,cart[productId]);
-    } else { 
+    } 
+    else { 
       cart[productId] = 1;
       console.log('Added product:', cart[productId]);
       button.textContent = "remove";
-      button.style.color = 'red'; //this is just for testing
+      button.style.color = 'red'; 
+
+      
+
+      cartData.push(products[productId]);
+
+      localStorage.setItem('cart', JSON.stringify(cartData));
+
     }
   });
 }
@@ -88,7 +97,7 @@ let filteredProducts = [];
      
   }
   else{
-    displayContainer.innerHTML = `<h1>Oops we dont have ${searchInput} right now</h1>`;
+    displayContainer.innerHTML = `<h1>Oops we don't have ${searchInput} right now</h1>`;
     displayContainer.scrollIntoView({ behavior: 'smooth' });
   }
 }
@@ -180,6 +189,7 @@ function displayCartData(items) {
 }
 
 
+
 if(cartRemoveItems.length==0)
 {
   displayContainer.innerHTML = `<h1>Add something to cart</h1>;
@@ -189,10 +199,3 @@ if(cartRemoveItems.length==0)
 }
 
 
-function rating(num)
-{
-  for(let i=0;i<num;i++)
-  {
-
-  }
-}
