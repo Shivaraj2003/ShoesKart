@@ -43,16 +43,10 @@ function displayData(items) {
 const cartItems = document.querySelectorAll('.cart');
   for (let i = 0; i < cartItems.length; i++) {
   const button = cartItems[i];
-
-  
-
   button.addEventListener('click', () => {
   const productId = button.id;
-  const cartData = JSON.parse(localStorage.getItem('cart'));
-  
+  const cartData = JSON.parse(localStorage.getItem('cart'))||[];
 
- 
-      
     if (cart.hasOwnProperty(productId)) {
       cart[productId] += 1;  
       console.log('Already have product:',productId,cart[productId]);
@@ -63,10 +57,7 @@ const cartItems = document.querySelectorAll('.cart');
       button.textContent = "remove";
       button.style.color = 'red'; 
 
-      
-
       cartData.push(products[productId]);
-
       localStorage.setItem('cart', JSON.stringify(cartData));
 
     }

@@ -1,189 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-body{
-    font-family: 'Poppins';
-    background-color: #f1f1f1;
+body {
+  font-family: "Poppins";
+  background-color: #f1f1f1;
 }
 
-
-h1{
-    font-family: 'Bebas Neue';
-    font-size: 70px;
-    font-weight: bold;
-    color: #363958;
-    padding: 0;
-    margin: 0;
+h1 {
+  font-family: "Bebas Neue";
+  font-size: 70px;
+  font-weight: bold;
+  color: #363958;
+  padding: 0;
+  margin: 0;
 }
 
-.custom-highlight{
-    font-weight: bold;
-    font-size: 2rem;
+.custom-highlight {
+  font-weight: bold;
+  font-size: 2rem;
 }
 
-
-
-.navMenu{
-    height: auto;
-    margin-bottom: 4%;
-    padding: 10px;
-    margin-top: 8px;
+.navMenu {
+  height: auto;
+  margin-bottom: 4%;
+  padding: 10px;
+  margin-top: 8px;
 }
 
-
-#header{
-    height: 100%;
+#header {
+  height: 100%;
 }
-
 
 /* #display{
     margin-top: 2%;
 } */
 
-#productContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+#productContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 #explore {
-    background-color: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin: auto;
-    display: flex;
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: auto;
+  display: flex;
 }
-
 
 .card {
-    border: 1px solid #0b0a0a;
-    border-radius: 2px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-
+  border: 1px solid #0b0a0a;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  margin-left: 10px;
 }
-
 
 .card-body {
-    padding: 1rem;
-    
+  padding: 1rem;
 }
-
-
 
 .card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
-
 
 .card-subtitle {
-    color: #888;
-    margin-bottom: 0.8rem;
+  color: #888;
+  margin-bottom: 0.8rem;
 }
 
-
 .card-img-top {
-    object-fit: contain;    
+  object-fit: contain;
 }
 
 .cart,
 .buy {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
 .cart {
-    background-color: #f0ad4e;
-    color: #fff;
+  background-color: #f0ad4e;
+  color: #fff;
 }
 
 .buy {
-    background-color: #6d9b18;
-    color: #fff;
+  background-color: #6d9b18;
+  color: #fff;
 }
 
-
-
-
-footer{
-    border-top: solid 0.5px black;
-    color: #000;
-    font-weight: bold;
-    
-}
-.footer a{
-    text-decoration: none;
-    color: #000;
+footer {
+  border-top: solid 0.5px black;
+  color: #000;
+  font-weight: bold;
 }
 
-.footer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 3px;
+.footer a {
+  text-decoration: none;
+  color: #000;
 }
 
-#my_cart{
-    border: none;
-    padding: 15px;
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
 }
 
-#searchInp{
-                height: 50px;
-                border: 0;
-
+#my_cart {
+  border: none;
+  padding: 15px;
 }
 
-#searchBox{
-        border: 2px;
-        border-bottom: 2px solid #000; 
-        background-color: whitesmoke;
-}
-#searchContainer{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 10px;
-    width:100%;
-    margin-right: 2%;
-   
+#searchInp {
+  height: 50px;
+  border: 0;
 }
 
-.menu{
-    display: flex;
-    align-items: center;
-    justify-content:end;
-    margin: auto;
+#searchBox {
+  border: 2px;
+  border-bottom: 2px solid #000;
+  background-color: whitesmoke;
 }
 
-ul{
-    width: 30vw;
-    margin-left: 5%;
-    font-weight: bolder;
-    font-size: 1.2rem;
-      
+#searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  width: 100%;
+  margin-right: 2%;
 }
 
-.desc{
-    margin-top: 5px;
-    line-height: 2;
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin: auto;
+}
+
+ul {
+  width: 30vw;
+  margin-left: 5%;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
+.desc {
+  margin-top: 5px;
+  line-height: 2;
 }
 
 .bg-image {
-  background-image: url('images/shoe9.jpg');
+  background-image: url("images/shoe9.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -193,52 +174,42 @@ ul{
   color: orange;
 }
 
-.rating{
-    background-color: red;
+.rating {
+  background-color: red;
 }
 
-
-
-@media (min-width:320px ) and (max-width:480px ) {
-
-
-h1{
+@media (min-width: 320px) and (max-width: 480px) {
+  h1 {
     font-size: 50px;
     font-weight: bolder;
-}
+  }
 
-#explore{
+  #explore {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
+  }
 }
 
-
-}
-
-@media(max-width:666px) and (min-width:480px)
-{
-   .cardItem{ 
+@media (max-width: 666px) and (min-width: 480px) {
+  .cardItem {
     width: 27rem;
     height: 600px;
-   }
+  }
 }
 
-@media(max-width:480px) and (min-width:320px)
-{
-   .cardItem{ 
+@media (max-width: 480px) and (min-width: 320px) {
+  .cardItem {
     width: 20rem;
     height: 600px;
-   }
+  }
 }
 
-@media(min-width:666px)
-{
-   .cardItem{ 
+@media (min-width: 666px) {
+  .cardItem {
     width: 20rem;
     height: 620px;
-   }
+  }
 }
-

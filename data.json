@@ -25,14 +25,20 @@
             "brand": "FORMALS",
             "title" :"ROYCE-2 Blue ",
             "img":"images/shoe5.jpg",
-            "price": 6000
+            "price": 6000,
+            "size":6,
+            "color":"red",
+            "rating":4
         },
         {
             "id": 4,
             "brand": "CROCS",
             "title" :"ROYCE-2 Blue ",
             "img":"images/shoe3.jpg",
-            "price": 3100
+            "price": 3100,
+            "size":6,
+            "color":"green",
+            "rating":4
         },
         {
             "id": 5,
