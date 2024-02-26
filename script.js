@@ -40,11 +40,13 @@ function displayData(items) {
   
 
 
+
 const cartItems = document.querySelectorAll('.cart');
   for (let i = 0; i < cartItems.length; i++) {
   const button = cartItems[i];
   button.addEventListener('click', () => {
-  const productId = button.id;
+  const productId = button.id-1; //Indexing starts from zero
+
   const cartData = JSON.parse(localStorage.getItem('cart'))||[];
 
     if (cart.hasOwnProperty(productId)) {

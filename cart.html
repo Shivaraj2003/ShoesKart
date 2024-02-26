@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
 
-  <body>
+  <body >
     <header id="header">
       <nav class="navbar navbar-expand-lg bg-body-tertiary navMenu">
         <div class="container-fluid">
@@ -161,8 +161,8 @@
                   </div>
                 </div> -->
               </div>
-
-              <div class="d-flex justify-content-around">
+<div id="pricing">
+              <div class="d-flex justify-content-around" >
                 <div>
                   <h3>Total Amount</h3>
                 </div>
@@ -182,6 +182,7 @@
                     </button></a
                   >
                 </div>
+              </div>
               </div>
             </div>
           </div>
@@ -229,18 +230,20 @@
       console.log(typeof cartData);
 
       if (cartData.length === 0) {
-        cartContainer.innerHTML = `<h3 class="p-3 m-3 fw-bold fs-7 text-lg-center">Not added any items to cart</h3>`;
+        cartContainer.innerHTML = `<h3 class="p-3 m-3 fw-bold fs-7 text-center">Not added any items to cart</h3>`;
+               document.querySelector("#pricing").innerHTML='';
+
       } else {
         for (let i = 0; i < cartData.length; i++) {
           cartContainer.innerHTML +=
            `<div class="card-body p-4 border border-2 border-black ">
   <div class="row d-flex justify-content-between align-items-center">
     <div class="col-md-2 col-lg-2 col-xl-2">
-      <img src=${cartData[i].img} class="img-fluid rounded-3" alt="Shoez" />
+      <img src=${cartData[i].img} class="img-fluid rounded-3 " alt="Shoez" style="height: 20%; width:10%/>
     </div>
 
     <div class="col-md-3 col-lg-3 col-xl-3">
-      <p class="lead fw-normal mb-2">${cartData[i].title}</p>
+      <p class="lead fw-normal fw-bold mb-2">${cartData[i].title}</p>
       <p>
         <span class="text-muted">Size: ${cartData[i].size}</span>
         <br>
@@ -248,7 +251,7 @@
       </p>
     </div>
 
-    <div class="col-md-3 col-lg-2 col-xl-2 d-flex">
+    <div class="col-md-3 col-lg-2 col-xl-2 mb-2 d-flex">
       <button class="btn btn-link px-2" id="decrement${i}" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
         <i class="fas fa-minus"></i>
       </button>
@@ -268,7 +271,7 @@
       <h5 id = 'total${i}' class="mb-0">&#8377;${cartData[i].price }</h5>
     </div>
 
-    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+    <div class="col-md-1 col-lg-1 col-xl-1 text-end" onclick = "remove(${cartData[i].id})">
       <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
     </div>
   </div>
@@ -281,7 +284,18 @@
 
         }
       }
-      
+
+      function remove(j){
+        
+        const newCartData = cartData.filter(object => {
+
+        return object.id !== j;
+});
+      localStorage.setItem('cart', JSON.stringify(newCartData));
+      location.reload();
+
+
+      }
 
     </script>
   </body>
