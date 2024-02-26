@@ -4,7 +4,7 @@
             "id": 1,
             "brand": "PUMA",
             "title" :"ROYCE-2 Blue ",
-            "img":"images/shoe9.jpg",
+            "img":"images/shoe1.jpg",
             "size":6,
             "color":"white",
             "price": 499,
@@ -24,7 +24,7 @@
             "id": 3,
             "brand": "FORMALS",
             "title" :"ROYCE-2 Blue ",
-            "img":"images/shoe5.jpg",
+            "img":"images/shoe3.jpg",
             "price": 6000,
             "size":6,
             "color":"red",
@@ -34,39 +34,52 @@
             "id": 4,
             "brand": "CROCS",
             "title" :"ROYCE-2 Blue ",
-            "img":"images/shoe3.jpg",
+            "img":"images/shoe4.jpg",
             "price": 3100,
             "size":6,
             "color":"green",
             "rating":4
         },
-        {
+         {
             "id": 5,
-            "brand": "CROCS",
+            "brand": "PUMA",
             "title" :"ROYCE-2 Blue ",
-            "img":"images/shoe1.jpg",
-            "price": 2500
+            "img":"images/shoe5.jpg",
+            "size":6,
+            "color":"white",
+            "price": 499,
+            "rating":4
         },
         {
             "id": 6,
             "brand": "CROCS",
             "title" :"ROYCE-2 Blue ",
             "img":"images/shoe6.jpg",
-            "price": 750
+            "price": 800,
+            "size":6,
+            "color":"black",
+            "rating":4
         },
         {
             "id": 7,
-            "brand": "CROCS",
+            "brand": "FORMALS",
             "title" :"ROYCE-2 Blue ",
             "img":"images/shoe7.jpg",
-            "price": 1500
+            "price": 6000,
+            "size":6,
+            "color":"red",
+            "rating":4
         },
         {
             "id": 8,
             "brand": "CROCS",
             "title" :"ROYCE-2 Blue ",
             "img":"images/shoe8.jpg",
-            "price": 999
+            "price": 3100,
+            "size":6,
+            "color":"blue",
+            "rating":4
         }
+       
     ]
 }

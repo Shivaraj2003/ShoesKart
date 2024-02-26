@@ -10,6 +10,7 @@ async function loadDataAndDisplay() {
     const data = await response.json();
     products = data.shoes;
     displayData(products);
+   
   } catch (error) {
     console.error("Error fetching or parsing data:", error);
   }
@@ -49,18 +50,18 @@ const cartItems = document.querySelectorAll('.cart');
 
   const cartData = JSON.parse(localStorage.getItem('cart'))||[];
 
-    if (cart.hasOwnProperty(productId)) {
-      cart[productId] += 1;  
-      console.log('Already have product:',productId,cart[productId]);
-    } 
+    if (cartData.hasOwnProperty(productId)) {
+alert('Already entered to cart')   ;
+ } 
     else { 
-      cart[productId] = 1;
-      console.log('Added product:', cart[productId]);
-      button.textContent = "remove";
+      button.textContent = "Added ";
       button.style.color = 'red'; 
+     
 
       cartData.push(products[productId]);
       localStorage.setItem('cart', JSON.stringify(cartData));
+      location.reload();
+      
 
     }
   });
@@ -191,4 +192,5 @@ if(cartRemoveItems.length==0)
 }
 }
 
-
+const cartCount = JSON.parse(localStorage.getItem('cart'))|| [];
+document.querySelector('.badge').innerText = cartCount.length;
