@@ -55,7 +55,7 @@ const cartItems = document.querySelectorAll('.cart');
 
 
     if (cartData.hasOwnProperty(productId)) {
-alert('Already entered to cart')   ;
+    alert('Already entered to cart')   ;
  } 
     else { 
       button.textContent = "Added ";

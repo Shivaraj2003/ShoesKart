@@ -262,3 +262,14 @@ input[type="text"],input[type="email"]{
 display: none;}
 }
 
+#upi{
+visibility: hidden;
+}
+
+#pay{
+
+  background-color: rgb(223, 235, 235);
+  font-weight: bold;
+  padding: 3px;
+  font-size: 2rem;
+}

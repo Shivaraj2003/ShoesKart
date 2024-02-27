@@ -78,6 +78,8 @@ if (cartData.length === 0) {
     }
 
     totalPriceSpan.innerText = totalPrice;
+    localStorage.setItem('cartAmount',totalPrice);
+
 }
 
 const removeButton = document.querySelectorAll(`.remove`);
@@ -131,4 +133,6 @@ function updateTotal() {
     }
 
     totalPriceSpan.innerText = amt;
+        localStorage.setItem('cartAmount',amt);
+
 }
