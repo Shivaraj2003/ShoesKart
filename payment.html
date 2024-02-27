@@ -64,8 +64,7 @@
 
     <section class="bg-light my-5">
         <div class="container">
-            <div class="row g-5">
-                <div class="col-md-5 col-lg-4 order-md-last">
+                <!-- <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-primary">Your cart</span>
                         <span class="badge bg-primary rounded-pill count">1</span>
@@ -100,8 +99,8 @@
                     </ul>
 
 
-                </div>
-                <div class="col-md-7 col-lg-8">
+                </div> -->
+                <div >
                     <h4 class="mb-3">Billing address</h4>
                     <form class="needs-validation" novalidate="">
                         <div class="row g-3">
@@ -126,7 +125,6 @@
                             <div class="col-12">
                                 <label for="username" class="form-label">Username</label>
                                 <div class="input-group has-validation">
-                                    <span class="input-group-text">@</span>
                                     <input type="text" class="form-control" id="username" placeholder="Username"
                                         required="">
                                     <div class="invalid-feedback">
@@ -163,7 +161,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <!-- <div class="col-12">
                                 <label for="address2" class="form-label">Address 2 <span
                                         class="text-muted">(Optional)</span></label>
                                 <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
@@ -175,7 +173,7 @@
 
                             <div class="col-md-4">
                                 <label for="state" class="form-label">State</label>
-                            </div>
+                            </div> -->
 
                             <div class="col-md-3">
                                 <label for="zip" class="form-label">Zip</label>
@@ -188,11 +186,11 @@
 
                         <hr class="my-4">
 
-                        <div class="form-check">
+                        <!-- <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="same-address">
                             <label class="form-check-label" for="same-address">Shipping address is the same as my
                                 billing address</label>
-                        </div>
+                        </div> -->
 
                         <!-- <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="save-info">
@@ -204,24 +202,20 @@
                         <h4 class="mb-3">Payment</h4>
 
                         <div class="my-3">
-                            <div class="form-check">
-                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked=""
-                                    required="">
-                                <label class="form-check-label" for="credit">Credit card</label>
-                            </div>
+                            
                             <div class="form-check">
                                 <input id="debit" name="paymentMethod" type="radio" class="form-check-input"
                                     required="">
-                                <label class="form-check-label" for="debit">Debit card</label>
+                                <label class="form-check-label" for="debit">Online payment</label>
                             </div>
                             <div class="form-check">
                                 <input id="paypal" name="paymentMethod" type="radio" class="form-check-input"
                                     required="">
-                                <label class="form-check-label" for="paypal">PayPal</label>
+                                <label class="form-check-label" for="paypal">Cash on Delivery</label>
                             </div>
                         </div>
 
-                        <div class="row gy-3">
+                        <div class="row gy-3" id="upi">
                             <div class="col-md-6">
                                 <label for="cc-name" class="form-label">Name on card</label>
                                 <input type="text" class="form-control" id="cc-name" placeholder="" required="">
@@ -282,48 +276,7 @@
         </footer>
     </div>
 
-    <script>
-
-        const cartSummaryData = JSON.parse(localStorage.getItem("cart")) || [];
-        var listContainer = document.getElementById("cartSummary");
-
-        listContainer.innerHTML = '';
-
-        if (cartSummaryData.length === 0) {
-            listContainer.innerHTML = `<h3 class="p-3 m-3 fw-bold fs-7 text-center">Not added any items to cart</h3>
-<div class="text-center">
-  <a href="index.html"><button type="button" class="btn btn-primary mb-3 fw-bold">Go to Home</button></a>
-</div>        `;
-        }
-        else {
-            let total = 0;
-            let i;
-
-            for ( i = 0; i < cartSummaryData.length; i++) {
-                var listItem = document.createElement("li");
-                listItem.className = "list-group-item d-flex justify-content-between lh-sm";
-
-                var itemContent = `
-            <div>
-                <h6 class="my-0">${cartSummaryData[i].title}</h6>
-            </div>
-            <span class="text-muted">&#8377;${cartSummaryData[i].price}</span>
-        `;
-        total+=cartSummaryData[i].price;
-
-                listItem.innerHTML = itemContent;
-                listContainer.appendChild(listItem);
-            }
-             var totalItem = document.createElement("li");
-    totalItem.className = "list-group-item d-flex justify-content-between";
-    totalItem.innerHTML = `<span>Total </span><strong>&#8377;${total}</strong>`;
-    listContainer.appendChild(totalItem);
-
-    document.querySelector('.count').innerText = i;
-
-        }
-
-    </script>
+    <script src="payment.js" type="module"></script>
 </body>
 
 </html>

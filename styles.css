@@ -250,3 +250,15 @@ a{
         left: -27px;
     }
 }
+
+
+input[type="text"],input[type="email"]{
+  border: solid black 2px;
+}
+
+
+@media (min-width: 320px) and (max-width:768px){
+     #productRow{
+display: none;}
+}
+

@@ -65,7 +65,7 @@ alert('Already entered to cart')   ;
       cartData.push(products[productId]);
       localStorage.setItem('cart', JSON.stringify(cartData));
       
-     // location.reload();
+      location.reload();
       
 
     }

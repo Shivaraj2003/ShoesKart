@@ -1,77 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>ShoeKart</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>ShoeKart</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-
-<body>
-  <header id="header">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navMenu">
-      <div class="container-fluid">
+  <body>
+    <header id="header">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary navMenu">
         <div class="container-fluid">
-          <div class="d-flex justify-content-between align-items-center">
-            <a class="navbar-brand" href="index.html">
-              <span class="custom-highlight">ShoezKart</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+          <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center">
+              <a class="navbar-brand" href="index.html">
+                <span class="custom-highlight">ShoezKart</span>
+              </a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="collapse navbar-collapse menu"
+            id="navbarSupportedContent"
+          >
+            <ul
+              class="navbar-nav m-auto mb-2 mb-lg-0 d-flex justify-content-between"
+            >
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#display">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
-          <ul class="navbar-nav m-auto mb-2 mb-lg-0 d-flex justify-content-between">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#display">Shop</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="d-flex flex-row mt-3" role="search" id="searchContainer">
-        <div id="searchBox" class="d-flex align-content-center p-1 ms-auto justify-content-center shadow">
-          <input class="form-control m-0 pe-0" type="search" placeholder="Discover Your Sole Mate..." size="50"
-            aria-label="Search" id="searchInp" />
-          <button class="btn" type="submit" id="search">
-            <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
-          </button>
-        </div>
-        <!-- <button class="btn" type="submit" id="my_cart">
+        <div class="d-flex flex-row mt-3" role="search" id="searchContainer">
+          <div
+            id="searchBox"
+            class="d-flex align-content-center p-1 ms-auto justify-content-center shadow"
+          >
+            <input
+              class="form-control m-0 pe-0"
+              type="search"
+              placeholder="Discover Your Sole Mate..."
+              size="50"
+              aria-label="Search"
+              id="searchInp"
+            />
+            <button class="btn" type="submit" id="search">
+              <i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+            </button>
+          </div>
+          <!-- <button class="btn" type="submit" id="my_cart">
           <i class="fa-solid fa-cart-shopping fa-2xl"></i>
         </button> -->
-      </div>
-    </nav>
+        </div>
+      </nav>
 
-    <section class="h-auto">
-      <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-10">
-            <div class="d-flex justify-content-center align-items-center mb-4 mt-3">
-              <h2 class="fw-normal mb-0 text-black mt-3">Shopping Cart</h2>
-            </div>
+      <section class="h-auto">
+        <div class="container h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="col-10">
+              <div
+                class="d-flex justify-content-center align-items-center mb-4 mt-3"
+              >
+                <h2 class="fw-normal mb-0 text-black mt-3">Shopping Cart</h2>
+              </div>
 
-            <div class="card rounded-3 mb-4" id="cartContainer">
-              <!-- <div class="card-body p-4">
+              <div class="card rounded-3 mb-4" id="cartContainer">
+                <!-- <div class="card-body p-4">
                   <div
                     class="row d-flex justify-content-between align-items-center"
                   >
@@ -127,135 +160,65 @@
                     </div>
                   </div>
                 </div> -->
-            </div>
-            <div id="pricing">
-              <div class="d-flex justify-content-around">
-                <div>
-                  <h3>Total Amount</h3>
-                </div>
-                <div>
-                  <h3>&#8377; <span id="totalPrice">400.00</span></h3>
-                </div>
               </div>
+              <div id="pricing">
+                <div class="d-flex justify-content-around">
+                  <div>
+                    <h3>Total Amount</h3>
+                  </div>
+                  <div>
+                    <h3>&#8377; <span id="totalPrice">400.00</span></h3>
+                  </div>
+                </div>
 
-              <div class="card">
-                <div class="card-body justify-content-center d-flex">
-                  <a href="payment.html"><button type="button" class="btn btn-danger btn-block btn-lg">
-                      Proceed to Pay
-                    </button></a>
+                <div class="card">
+                  <a href="payment.html"><div class="card-body justify-content-center d-flex">
+                    <button
+                         id="proceed"
+                        type="button"
+                        class="btn btn-danger btn-block btn-lg"
+                      >
+                        Proceed to Pay
+                      </button>
+                      </a>
+                      </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </header>
+      </section>
+    </header>
 
-  <div class="container-fluid my-3 mb-0">
-    <footer class="text-center text-lg-start">
-      <div class="footer d-flex justify-content-around mt-3">
-        <a href="https://github.com/Shivaraj2003"><i class="fa-brands fa-github fa-2xl"></i></a>
-        <a href="https://www.linkedin.com/in/shivaraj-shetty-7559b2211/"><i
-            class="fa-brands fa-linkedin fa-2xl"></i></a>
-        <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F_shivrajshetty_"><i
-            class="fa-brands fa-twitter fa-2xl"></i></a>
-      </div>
+    <div class="container-fluid my-3 mb-0">
+      <footer class="text-center text-lg-start">
+        <div class="footer d-flex justify-content-around mt-3">
+          <a href="https://github.com/Shivaraj2003"
+            ><i class="fa-brands fa-github fa-2xl"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/shivaraj-shetty-7559b2211/"
+            ><i class="fa-brands fa-linkedin fa-2xl"></i
+          ></a>
+          <a
+            href="https://twitter.com/i/flow/login?redirect_after_login=%2F_shivrajshetty_"
+            ><i class="fa-brands fa-twitter fa-2xl"></i
+          ></a>
+        </div>
 
-      <div class="text-center p-3">
-        © 2024 Copyright:
-        <span>Shivaraj Shetty</span>
-      </div>
-    </footer>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-
-  <script>
-    var cartContainer = document.querySelector("#cartContainer");
-    const totalPriceSpan = document.getElementById("totalPrice");
-    cartContainer.innerHTML = "";
-    let totalPrice = 0;
-
-
-    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
-
-    console.log(typeof cartData);
-
-    if (cartData.length === 0) {
-      cartContainer.innerHTML = `<h3 class="p-3 m-3 fw-bold fs-7 text-center">Not added any items to cart</h3>
-<div class="text-center">
-  <a href="index.html"><button type="button" class="btn btn-primary mb-3 fw-bold">Go to Home Page</button></a>
-</div>        `
-        ;
-      document.querySelector("#pricing").innerHTML = '';
-
-    } else {
-      for (let i = 0; i < cartData.length; i++) {
-        cartContainer.innerHTML +=
-          `<div class="card-body p-4 border border-2 border-black ">
-  <div class="row d-flex justify-content-between align-items-center">
-    <div class="col-md-2 col-lg-2 col-xl-2">
-      <img src=${cartData[i].img} class="img-fluid rounded-3 " alt="Shoez" style="height: 20%; width:10%/>
+        <div class="text-center p-3">
+          © 2024 Copyright:
+          <span>ShoezKart</span>
+        </div>
+      </footer>
     </div>
 
-    <div class="col-md-3 col-lg-3 col-xl-3">
-      <p class="lead fw-normal fw-bold mb-2">${cartData[i].title}</p>
-      <p>
-        <span class="text-muted">Size: ${cartData[i].size}</span>
-        <br>
-        <span class="text-muted">Color:</span>${cartData[i].color} 
-      </p>
-    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
 
-    <div class="col-md-3 col-lg-2 col-xl-2 mb-2 d-flex">
-      <button class="btn btn-link px-2" id="decrement${i}" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-        <i class="fas fa-minus"></i>
-      </button>
-
-      <input id="form1${i}" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" />
-
-      <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-        <i class="fas fa-plus"></i>
-      </button>
-    </div>
-
-    <div class="col-md-3 col-lg-2 col-xl-2">
-      <h5 class="mb-0">&#8377;${cartData[i].price}</h5>
-    </div>
-
-     <div class="col-md-3 col-lg-2 col-xl-2">
-      <h5 id = 'total${i}' class="mb-0">&#8377;${cartData[i].price}</h5>
-    </div>
-
-    <div class="col-md-1 col-lg-1 col-xl-1 text-end" onclick = "remove(${cartData[i].id})">
-      <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-    </div>
-  </div>
-</div>`;
-
-        totalPrice += cartData[i].price;
-        totalPriceSpan.innerText = totalPrice;
-
-
-
-      }
-    }
-
-    function remove(j) {
-
-      const newCartData = cartData.filter(object => {
-
-        return object.id !== j;
-      });
-      localStorage.setItem('cart', JSON.stringify(newCartData));
-      location.reload();
-
-    }
-
-  </script>
-</body>
-
+    <script src="cart.js" type="module"></script>
+  </body>
 </html>
