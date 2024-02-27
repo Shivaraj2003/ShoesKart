@@ -33,7 +33,7 @@ function displayData(items) {
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <div class="d-flex justify-content-center gap-3">
           <button class="cart fw-bold shadow " id=${product.id}>Cart</button>
-          <button class="buy fw-bold bg-primary shadow">Buy</button>
+          <button class="buy fw-bold bg-primary shadow" id=${product.id}>Buy</button>
           </div>
         </div>
       </div>
@@ -42,6 +42,7 @@ function displayData(items) {
       count.innerHTML = cartData.length;  
   }
   
+
 
 
 
@@ -73,7 +74,38 @@ const cartItems = document.querySelectorAll('.cart');
 }
 
 
+const buyItems = document.querySelectorAll('.buy');
+  for (let i = 0; i < buyItems.length; i++) {
+  const button = buyItems[i];
+  button.addEventListener('click', () => {
+  const productId = button.id-1; //Indexing starts from zero
+
+  const cartData = JSON.parse(localStorage.getItem('cart'))||[];
+
+
+    
+      localStorage.setItem('cartAmount', products[productId].price);
+
+      
+     // location.reload();
+             window.location.href = 'payment.html';
+
+      
+
+    
+  });
 }
+}
+
+
+
+
+
+
+
+
+
+
 
 loadDataAndDisplay();
 

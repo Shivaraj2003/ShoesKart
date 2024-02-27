@@ -6,7 +6,7 @@ const cash = document.getElementById('cash');
 const pay = document.getElementById('pay');
 
 const payAmt = localStorage.getItem('cartAmount');
- pay.value =payAmt ;
+pay.value=payAmt ;
 pay.disabled =true;
 
 
