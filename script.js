@@ -1,9 +1,8 @@
 const displayContainer = document.getElementById("productContainer");
 const homePage = document.getElementById("cover");
-const count = document.querySelector('.badge');
+const count = document.querySelector(".badge");
 
-var products ;
-var cart ={} ;
+var products;
 
 async function loadDataAndDisplay() {
   try {
@@ -11,7 +10,6 @@ async function loadDataAndDisplay() {
     const data = await response.json();
     products = data.shoes;
     displayData(products);
-   
   } catch (error) {
     console.error("Error fetching or parsing data:", error);
   }
@@ -37,195 +35,94 @@ function displayData(items) {
           </div>
         </div>
       </div>
-    `;  
-    const cartData = JSON.parse(localStorage.getItem('cart'))||[];
-      count.innerHTML = cartData.length;  
+    `;
+    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+    count.innerHTML = cartData.length;
   }
+
+  const cartItems = document.querySelectorAll(".cart");
   
-
-
-
-
-const cartItems = document.querySelectorAll('.cart');
   for (let i = 0; i < cartItems.length; i++) {
-  const button = cartItems[i];
-  button.addEventListener('click', () => {
-  const productId = button.id-1; //Indexing starts from zero
+    const button = cartItems[i];
+    button.addEventListener("click", () => {
+      const productId = button.id; //Indexing starts from zero
+      console.log(button.id);
 
-  const cartData = JSON.parse(localStorage.getItem('cart'))||[];
+      const cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
-
-    if (cartData.hasOwnProperty(productId)) {
-    alert('Already entered to cart')   ;
- } 
-    else { 
-      button.textContent = "Added ";
-      button.style.color = 'red'; 
-     
-
-      cartData.push(products[productId]);
-      localStorage.setItem('cart', JSON.stringify(cartData));
-      
-      location.reload();
-      
-
-    }
-  });
-}
+      console.log(cartData.hasOwnProperty(productId));
+      const productAlreadyInCart = cartData.some(product => product.id === parseInt(productId));
 
 
-const buyItems = document.querySelectorAll('.buy');
+      if (productAlreadyInCart) {
+        alert("Already entered to cart");
+      } else {
+        button.textContent = "Added ";
+        button.style.color = "red";
+
+        cartData.push(products[productId - 1]);
+             // cartData[productId] = products[parseInt(productId) - 1];
+
+
+        localStorage.setItem("cart", JSON.stringify(cartData));
+
+         location.reload();
+      }
+    });
+  }
+
+  const buyItems = document.querySelectorAll(".buy");
   for (let i = 0; i < buyItems.length; i++) {
-  const button = buyItems[i];
-  button.addEventListener('click', () => {
-  const productId = button.id-1; //Indexing starts from zero
+    const button = buyItems[i];
+    button.addEventListener("click", () => {
+      const productId = button.id - 1; //Indexing starts from zero
 
-  const cartData = JSON.parse(localStorage.getItem('cart'))||[];
+      const cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
+      localStorage.setItem("cartAmount", products[productId].price);
 
-    
-      localStorage.setItem('cartAmount', products[productId].price);
-
-      
-     // location.reload();
-             window.location.href = 'payment.html';
-
-      
-
-    
-  });
+      // location.reload();
+      window.location.href = "payment.html";
+    });
+  }
 }
-}
-
-
-
-
-
-
-
-
-
-
 
 loadDataAndDisplay();
 
 function filterProducts(searchInput) {
-  
-let filteredProducts = [];
+  let filteredProducts = [];
 
-  for(let i=0 ; i<products.length;i++)
-  {
-    if((products[i].title.toLowerCase().includes(searchInput.toLowerCase()) ) || (products[i].brand.toLowerCase().includes(searchInput.toLowerCase()) ))
-    {
+  for (let i = 0; i < products.length; i++) {
+    if (
+      products[i].title.toLowerCase().includes(searchInput.toLowerCase()) ||
+      products[i].brand.toLowerCase().includes(searchInput.toLowerCase())
+    ) {
       filteredProducts.push(products[i]);
     }
   }
 
-  if(filteredProducts.length!==0){
-     displayData(filteredProducts);
-     displayContainer.scrollIntoView({ behavior: 'smooth' });
-
-     
-  }
-  else{
+  if (filteredProducts.length !== 0) {
+    displayData(filteredProducts);
+    displayContainer.scrollIntoView({ behavior: "smooth" });
+  } else {
     displayContainer.innerHTML = `<h1>Oops we don't have ${searchInput} right now</h1>`;
-    displayContainer.scrollIntoView({ behavior: 'smooth' });
+    displayContainer.scrollIntoView({ behavior: "smooth" });
   }
 }
 
 document.querySelector("#search").addEventListener("click", () => {
   const searchInput = document.querySelector("#searchInp").value;
-  if(searchInput.trim().length===0)
-    alert("Kindly enter search value");
-  else{
-  filterProducts(searchInput);
-  //homePage.style.height = "0";
-  // homePage.innerHTML = displayContainer.innerHTML;
-  // displayContainer.innerHTML = '';
-  document.querySelector("#searchInp").value='';
-   //to make the display container empty
+  if (searchInput.trim().length === 0) alert("Kindly enter search value");
+  else {
+    filterProducts(searchInput);
+    //homePage.style.height = "0";
+    // homePage.innerHTML = displayContainer.innerHTML;
+    // displayContainer.innerHTML = '';
+    document.querySelector("#searchInp").value = "";
+    //to make the display container empty
   }
 });
-
-
 
 document.querySelector("#my_cart").addEventListener("click", () => {
- 
-//getCart();
-  // cartContainer.innerHTML = `<h1>This is cart</h1>`;
-  window.location.href = 'cart.html';
-
-  
+  window.location.href = "cart.html";
 });
-
-function getCart(){
-  let cartStore = []
-  for(let id in cart)
-  {
-    if(cart.hasOwnProperty(id))
-    {
-      cartStore.push(products[id-1]);
-    }
-  }
-  console.log(cartStore);
-  
-  displayCartData(cartStore);
-  displayContainer.scrollIntoView({ behavior: 'smooth' });
-   
-
-}
-
-function displayCartData(items) {
-  displayContainer.innerHTML = '';
-  for (let i = 0; i < items.length; i++) {
-    const product = items[i];
-    displayContainer.innerHTML += `
-      <div class="card col-md-3 p-2 cardItem">
-        <div class="card-body">
-          <h3 class="card-title">${product.title}</h3>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-          <img src="${product.img}" class="card-img-top" alt="..." height="350" width="350">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <button class="cartRemove bg-danger" id=${product.id}>Remove</button>
-
-          <a href="#" class="btn btn-primary">Buy</a>
-           <button class="" id=${product.id}>${cart[product.id]}</button>
-
-        </div>
-      </div>
-    `;
-  }
-
-
-
-
-  const cartRemoveItems = document.querySelectorAll('.cartRemove');
-
-  for (let i = 0; i < cartRemoveItems.length; i++) 
-  {
-  const button = cartRemoveItems[i];
-  button.addEventListener('click', () => {
-  const productId = button.id;
-
-    if (cart.hasOwnProperty(productId)) {
-      console.log('clicked');
-      delete cart[productId];
-      getCart();
-
-    } else {
-      cart[productId] = 1;
-      console.log('Added product:', cart[productId]);
-    }
-  });
-}
-
-
-
-if(cartRemoveItems.length==0)
-{
-  displayContainer.innerHTML = `<h1>Add something to cart</h1>;
-  <a href=index.html>Go to home page</a>`;
-  
-}
-}
-
