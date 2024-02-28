@@ -16,7 +16,7 @@ async function loadDataAndDisplay() {
 }
 
 function displayData(items) {
-  displayContainer.innerHTML = "";
+  displayContainer.innerHTML = ``;
   for (let i = 0; i < items.length; i++) {
     const product = items[i];
     displayContainer.innerHTML += `
@@ -25,7 +25,7 @@ function displayData(items) {
           <h3 class="card-title">${product.title}</h3>
           <h5 class="card-subtitle mb-2 text-body-secondary">${product.brand}</h5>
           <img src="${product.img}" class="card-img-top" alt="..."  style="height: 30%; width:100%">
-          <h5 class=" m-3 p-2 border border-black border-2 shadow fw-bolder d-flex justify-content-center">${product.rating} <span class="fa fa-star checked"></span></h5>
+          <h5 class=" m-3 p-2 border  border-2 shadow fw-bolder d-flex justify-content-center">${product.rating} <span class="fa fa-star checked"></span></h5>
           <h5 class=" m-3 p-2 border border-red border-2 shadow fw-bolder d-flex justify-content-center" style="background-color:light${product.color}">${product.color}</h5>
           <h5 class=" m-3 p-2 shadow fw-bolder d-flex justify-content-center">Price:<span>&#8377;</span>${product.price}</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

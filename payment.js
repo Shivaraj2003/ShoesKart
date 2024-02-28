@@ -11,17 +11,20 @@ const payment = document.getElementsByClassName('payment');
 pay.innerHTML=`&#8377;${payAmt}` ;
 pay.disabled =true;
 
-
+let done = false;
 
 online.addEventListener('click',()=>{
     upi.innerHTML=temp;
-upi.style.display = 'flex';
+    upi.style.display = 'flex';
+    done = true;
 });
 
 cash.addEventListener('click',()=>{
+        upi.style.display = 'flex';
     upi.style.visibility = 'visible';
+    upi.innerHTML = `<h3>Thank you Be ready with cash</h3>`;
+    done = true;
 
-upi.innerHTML = `<h3>Thank you Be ready with cash</h3>`;
 });
 
 document.getElementById('checkBtn').onclick = (event) => {
@@ -31,6 +34,17 @@ document.getElementById('checkBtn').onclick = (event) => {
     let tel = document.getElementById('phoneNumber');
     let add = document.getElementById('address');
     let zip = document.getElementById('zip');
+    
+    let name = document.getElementById('cc-name');
+    let cardNum = document.getElementById('cc-number');
+    let expiry = document.getElementById('cc-expiration');
+    let cvv = document.getElementById('cc-cvv');
+
+    if(name.value.trim()=='' ||cardNum.value.trim()=='' ||expiry.value.trim()=='' ||cvv.value.trim()==''  )
+    {
+        event.preventDefault();
+        console.log('Enter card data');
+    }
 
 
     if (fName.value.trim() === '') {
@@ -76,16 +90,18 @@ document.getElementById('checkBtn').onclick = (event) => {
         zip.style.color = 'red';
         reset(zip);
         event.preventDefault();
-
-
     } 
-
+    if(done==false)
+    {
+        console.log("Choose payment method");
+        event.preventDefault();
+    }
 
     function reset(val){
         val.onclick= ()=>
         {
-                
                         val.style.color = 'black';
+                        val.value='';
         }
         
     }
