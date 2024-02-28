@@ -78,7 +78,7 @@ if (cartData.length === 0) {
     }
 
     totalPriceSpan.innerText = totalPrice;
-    localStorage.setItem('cartAmount',totalPrice);
+    sessionStorage.setItem('cartAmount',totalPrice);
 
 }
 
@@ -133,6 +133,6 @@ function updateTotal() {
     }
 
     totalPriceSpan.innerText = amt;
-        localStorage.setItem('cartAmount',amt);
+        sessionStorage.setItem('cartAmount',amt);
 
 }

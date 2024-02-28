@@ -8,7 +8,7 @@
             "size":6,
             "color":"white",
             "price": 499,
-            "rating":4
+            "rating":3
         },
         {
             "id": 2,
@@ -18,7 +18,7 @@
             "price": 800,
             "size":6,
             "color":"yellow",
-            "rating":4
+            "rating":3
         },
         {
             "id": 3,

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header id="header">
+    <header id="header" style="height: 80vh;">
         <nav class="navbar navbar-expand-lg bg-body-tertiary navMenu">
       <div class="container-fluid ">
         <div class="container-fluid">
@@ -63,65 +63,15 @@
     </nav>
 
 
-        <div class="container-fluid px-5 my-5">
-            <div class="row justify-content-center">
-                <div class="col-xl-10">
-                    <div class="card border-0 rounded-3 shadow-lg overflow-hidden">
-                        <div class="card-body p-0">
-                            <div class="row g-0">
-                                <div class="col-sm-6 d-none d-sm-block bg-image">
-                                </div>
-                                <div class="col-sm-6 p-4">
-                                    <div class="text-center">
-                                        <div class="h3 fw-bold">Contact Form</div>
-                                        <p class="mb-4 text-muted">Feel free to give feedback</p>
-                                    </div>
-
-
-
-                                    <form id="contactForm" class="shadow" >
-  
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="name" type="text" placeholder="Name"
-                                                data-sb-validations="required" />
-                                            <label for="name">Name</label>
-                                            
-                                        </div>
-
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="emailAddress" type="email"
-                                                placeholder="Email Address" data-sb-validations="required,email" />
-                                            <label for="emailAddress">Email Address</label>
-                                            
-                                        </div>
-
-                                        
-                                        <div class="form-floating mb-3">
-                                            <textarea class="form-control" id="message" type="text"
-                                                placeholder="Message" style="height: 10rem;"
-                                                data-sb-validations="required"></textarea>
-                                            <label for="message">Message</label>
-                                            
-                                        </div>
-
-                                        
-                                        
-
-                                       
-                                        <div class="d-grid">
-                                            <button class="btn btn-primary btn-lg " id="submitButton"
-                                                type="submit">Submit</button>
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       <div class="jumbotron text-center">
+  <h1 class="display-3">Thank You!</h1>
+  <p class="lead">Your order have been placed sucessfully</p>
+  <hr>
+ 
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="index.html" role="button">Continue to homepage</a>
+  </p>
+</div>
 
     </header>
 
@@ -146,7 +96,6 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <script src="script.js" type="module"></script>
 </body>
 
 </html>

@@ -36,12 +36,13 @@ function displayData(items) {
         </div>
       </div>
     `;
+
     const cartData = JSON.parse(localStorage.getItem("cart")) || [];
     count.innerHTML = cartData.length;
   }
 
   const cartItems = document.querySelectorAll(".cart");
-  
+
   for (let i = 0; i < cartItems.length; i++) {
     const button = cartItems[i];
     button.addEventListener("click", () => {
@@ -51,8 +52,9 @@ function displayData(items) {
       const cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
       console.log(cartData.hasOwnProperty(productId));
-      const productAlreadyInCart = cartData.some(product => product.id === parseInt(productId));
-
+      const productAlreadyInCart = cartData.some(
+        (product) => product.id === parseInt(productId)
+      );
 
       if (productAlreadyInCart) {
         alert("Already entered to cart");
@@ -61,12 +63,11 @@ function displayData(items) {
         button.style.color = "red";
 
         cartData.push(products[productId - 1]);
-             // cartData[productId] = products[parseInt(productId) - 1];
-
+        // cartData[productId] = products[parseInt(productId) - 1];
 
         localStorage.setItem("cart", JSON.stringify(cartData));
 
-         location.reload();
+        location.reload();
       }
     });
   }
@@ -79,7 +80,7 @@ function displayData(items) {
 
       const cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
-      localStorage.setItem("cartAmount", products[productId].price);
+      sessionStorage.setItem("cartAmount", products[productId].price);
 
       // location.reload();
       window.location.href = "payment.html";

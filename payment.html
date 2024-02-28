@@ -101,8 +101,8 @@
 
                 </div> -->
                 <div >
-                    <h4 class="mb-3">Billing address</h4>
-                    <form class="needs-validation" novalidate="">
+                    <h3 class="mb-3 fw-bold">Payment Details</h3>
+                    <form class="needs-validation" >
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">First name</label>
@@ -122,18 +122,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
-                                <label for="username" class="form-label">Username</label>
-                                <div class="input-group has-validation">
-                                    <input type="text" class="form-control" id="username" placeholder="Username"
-                                        required="">
-                                    <div class="invalid-feedback">
-                                        Your username is required.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
+                            <div class="col-lg-8">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" placeholder="you@example.com">
                                 <div class="invalid-feedback">
@@ -141,7 +130,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-8">
                                 <label for="phoneNumber" class="form-label">Phone Number</label>
                                 <input type="tel" class="form-control" id="phoneNumber"
                                     placeholder="Enter your phone number" required>
@@ -152,14 +141,14 @@
 
 
 
-                            <div class="col-12">
-                                <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="1234 Main St"
-                                    required="">
-                                <div class="invalid-feedback">
-                                    Please enter your shipping address.
-                                </div>
-                            </div>
+                            <div class="col-lg-8">
+    <label for="address" class="form-label">Address</label>
+    <textarea class="form-control" id="address" placeholder="1234 Main St" required="required" style="border: solid black 2px;"></textarea>
+    <div class="invalid-feedback">
+        Please enter your shipping address.
+    </div>
+</div>
+
 
                             <!-- <div class="col-12">
                                 <label for="address2" class="form-label">Address 2 <span
@@ -175,9 +164,9 @@
                                 <label for="state" class="form-label">State</label>
                             </div> -->
 
-                            <div class="col-md-3">
-                                <label for="zip" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="zip" placeholder="" required="">
+                            <div class=" m-auto col-md-3">
+                                <label for="zip" class="form-label">ZipCode</label>
+                                <input type="text" class="form-control" id="zip" placeholder="" required="required">
                                 <div class="invalid-feedback">
                                     Zip code required.
                                 </div>
@@ -187,7 +176,7 @@
                         </div>
                         <div class="col-md-3">
                                 <label for="cc-number" class="form-label m-3 mb-0">Amount:</label>
-                                <div type="text" class="form-control m-0" id="pay" ></div>
+                                <div type="text" class="form-control m-auto d-flex " id="pay" ></div>
                             </div>
                         <hr class="my-4">
 
@@ -206,7 +195,7 @@
 
                         <h4 class="mb-3" >Payment</h4>
 
-                        <div class="my-3">
+                        <div class="my-3 payment">
                             
                             <div class="form-check">
                                 <input id="online" name="paymentMethod" type="radio" class="form-check-input"
@@ -259,8 +248,12 @@
                         </div>
 
                         <hr class="my-3">
+<a class="m-auto d-flex btn btn-primary justify-content-center  p-2" style="max-width: 28rem;" href="success.html" id="checkBtn">
+  Continue to Checkout
+</a>
 
-                        <button class="w-auto m-auto d-flex btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+
+                        <!-- <a class=" m-auto d-flex btn btn-primary btn text-center text-capitalize" style="max-width: 28rem;" role="button" href="success.html">Continue to checkout</a> -->
                     </form>
                 </div>
             </div>
@@ -283,7 +276,9 @@
             </div>
         </footer>
     </div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
     <script src="payment.js" type="module"></script>
 </body>
 

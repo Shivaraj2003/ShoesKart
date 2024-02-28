@@ -252,9 +252,10 @@ a{
 }
 
 
-input[type="text"],input[type="email"]{
+input[type="text"],input[type="email"],input[type="tel"] {
   border: solid black 2px;
 }
+
 
 
 @media (min-width: 320px) and (max-width:768px){
@@ -263,7 +264,8 @@ display: none;}
 }
 
 #upi{
-visibility: hidden;
+/* visibility: hidden; */
+display: none;
 }
 
 #pay{
@@ -273,3 +275,4 @@ visibility: hidden;
   padding: 3px;
   font-size: 2rem;
 }
+
