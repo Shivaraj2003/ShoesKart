@@ -276,3 +276,15 @@ display: none;
   font-size: 2rem;
 }
 
+@media(min-width:768px){
+  #media,#media1{
+    display: none;
+    
+  }
+  
+}
+@media(max-width:767px){
+  #mg{
+    margin-bottom: 3%;
+  }
+}

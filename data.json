@@ -27,7 +27,7 @@
             "img":"images/shoe3.jpg",
             "price": 6000,
             "size":6,
-            "color":"red",
+            "color":"RED",
             "rating":4
         },
         {
