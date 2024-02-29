@@ -1,6 +1,7 @@
 const displayContainer = document.getElementById("productContainer");
 const homePage = document.getElementById("cover");
 const count = document.querySelector(".badge");
+  var filterDropdown = document.getElementById('filterDropdown');
 
 var products;
 
@@ -96,8 +97,7 @@ function filterProducts(searchInput) {
   for (let i = 0; i < products.length; i++) {
     if (
       products[i].title.toLowerCase().includes(searchInput.toLowerCase()) ||
-      products[i].brand.toLowerCase().includes(searchInput.toLowerCase())
-    ) {
+      products[i].brand.toLowerCase().includes(searchInput.toLowerCase())     ) {
       filteredProducts.push(products[i]);
     }
   }
@@ -106,7 +106,7 @@ function filterProducts(searchInput) {
     displayData(filteredProducts);
     displayContainer.scrollIntoView({ behavior: "smooth" });
   } else {
-    displayContainer.innerHTML = `<h1>Oops we don't have ${searchInput} right now</h1>`;
+    displayContainer.innerHTML = `<h1>Out of stock</h1>`;
     displayContainer.scrollIntoView({ behavior: "smooth" });
   }
 }
@@ -124,6 +124,38 @@ document.querySelector("#search").addEventListener("click", () => {
   }
 });
 
+filterDropdown.addEventListener('click', function(e) {
+    if (e.target.classList.contains('dropdown-item')) {
+      var selectedValue = e.target.getAttribute('data-value');
+      sortItems(selectedValue);
+      console.log('Selected Value:', selectedValue);
+    }
+  });
+
+  
+function sortItems(sI) {
+  let sorted = [];
+
+  for (let i = 0; i < products.length; i++) {
+    if (products[i].rating>=Number(sI))      {
+      sorted.push(products[i]);
+    }
+  }
+
+  if (sorted.length !== 0) {
+    displayData(sorted);
+    displayContainer.scrollIntoView({ behavior: "smooth" });
+  } else {
+    displayContainer.innerHTML = `<h1>Out of stock</h1>`;
+    displayContainer.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+
+
 document.querySelector("#my_cart").addEventListener("click", () => {
   window.location.href = "cart.html";
 });
+
+
+ 
