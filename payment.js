@@ -1,4 +1,3 @@
-
 const cartSummaryData = JSON.parse(localStorage.getItem("cart")) || [];
 const upi = document.getElementById('upi');
 const online = document.getElementById('online');
@@ -25,7 +24,6 @@ cash.addEventListener('click', () => {
     upi.style.visibility = 'visible';
     upi.innerHTML = `<h3>Thank you Be ready with cash</h3>`;
     done = true;
-
 });
 
 document.getElementById('checkBtn').onclick = (event) => {
@@ -40,77 +38,65 @@ document.getElementById('checkBtn').onclick = (event) => {
     let expiry = document.getElementById('cc-expiration');
     let cvv = document.getElementById('cc-cvv');
 
-
     if (document.getElementById('online').checked) {
-        if (name.value.trim() == '' || cardNum.value.trim() == '' || expiry.value.trim() == '' || cvv.value.trim() == '') {
+        if (name.value.trim() === '' || cardNum.value.trim() === '' || expiry.value.trim() === '' || cvv.value.trim() === '') {
             event.preventDefault();
-            upi.style.color = 'red';
-            console.log('Enter card data');
+            displayError(name, 'Name on card is required');
+            displayError(cardNum, 'Credit card number is required');
+            displayError(expiry, 'Expiration date is required');
+            displayError(cvv, 'Security code is required');
         }
     }
 
     if (fName.value.trim() === '') {
-        fName.value = "First Name cannot be empty";
-        fName.style.color = 'red';
-        reset(fName);
+        displayError(fName, 'First Name cannot be empty');
         event.preventDefault();
     }
 
     if (lName.value.trim() === '') {
-        lName.value = "Last Name cannot be empty";
-        lName.style.color = 'red';
-        reset(lName);
+        displayError(lName, 'Last Name cannot be empty');
         event.preventDefault();
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.com$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email.value.trim())) {
-        email.value = "Invalid email format";
-        email.style.color = 'red';
-        reset(email);
+        displayError(email, 'Invalid email format');
         event.preventDefault();
     }
 
     const phoneRegex = /^[1-9]\d{9}$/;
-    if (phoneRegex.test(tel.value.trim()) == false) {
-        tel.style.color = 'red';
-        reset(tel);
+    if (!phoneRegex.test(tel.value.trim())) {
+        displayError(tel, 'Please enter a valid phone number');
         event.preventDefault();
     }
 
     if (add.value.trim() === '') {
-        add.value = "Address cannot be empty";
-        add.style.color = 'red';
-        reset(add);
+        displayError(add, 'Address cannot be empty');
         event.preventDefault();
     }
 
     const zipRegex = /^\d{6}$/;
     if (!zipRegex.test(zip.value.trim())) {
-        zip.value = "Invalid zip code";
-        zip.style.color = 'red';
-        reset(zip);
-        event.preventDefault();
-    }
-    if (done == false) {
-        console.log("Choose payment method");
+        displayError(zip, 'Invalid zip code');
         event.preventDefault();
     }
 
-    function reset(val) {
-        val.onclick = () => {
-            val.style.color = 'black';
-            val.value = '';
-        }
+    if (!done) {
+        displayError(upi, 'Choose payment method');
+        event.preventDefault();
+    }
 
+    function displayError(element, message) {
+        element.classList.add('is-invalid');
+        let errorFeedback = element.nextElementSibling;
+        errorFeedback.innerHTML = message;
     }
 }
 
-
 document.querySelector("#my_cart").addEventListener("click", () => {
-  window.location.href = "cart.html";
+    window.location.href = "cart.html";
 });
 
 const cartData = JSON.parse(localStorage.getItem("cart")) || [];
-    count.innerHTML = cartData.length;
+count.innerHTML = cartData.length;
