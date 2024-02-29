@@ -35,7 +35,6 @@ document.getElementById('checkBtn').onclick = (event) => {
     let tel = document.getElementById('phoneNumber');
     let add = document.getElementById('address');
     let zip = document.getElementById('zip');
-
     let name = document.getElementById('cc-name');
     let cardNum = document.getElementById('cc-number');
     let expiry = document.getElementById('cc-expiration');
@@ -108,8 +107,10 @@ document.getElementById('checkBtn').onclick = (event) => {
     }
 }
 
+
 document.querySelector("#my_cart").addEventListener("click", () => {
   window.location.href = "cart.html";
 });
+
 const cartData = JSON.parse(localStorage.getItem("cart")) || [];
     count.innerHTML = cartData.length;

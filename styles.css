@@ -56,7 +56,7 @@ h1 {
 }
 
 .card {
-  border: 1px solid #0b0a0a;
+  /* border: 1px solid #0b0a0a; */
   border-radius: 2px;
   margin-bottom: 20px;
   margin-left: 10px;
