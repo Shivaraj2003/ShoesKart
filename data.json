@@ -2,7 +2,7 @@
     "shoes": [
         {
             "id": 1,
-            "brand": "PUMA",
+            "brand": "NIKE",
             "title" :"ROYCE-2 Blue ",
             "img":"images/shoe1.jpg",
             "size":6,

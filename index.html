@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100 ">
 
   <header id="header">
     <nav class="navbar navbar-expand-lg bg-body-tertiary navMenu">
@@ -55,32 +55,39 @@
 
       <div class="d-flex flex-row mt-3" role="search" id="searchContainer">
 
-        
+
         <div id="searchBox" class="d-flex align-content-center ms-auto p-1 justify-content-center shadow">
           <input class="form-control m-0  pe-0" type="search" placeholder="Discover Your Sole Mate..." size="50"
             aria-label="Search" id="searchInp">
           <button class="btn " type="submit" id="search"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
         </div>
+
         <!-- <button class="btn " type="submit" id="my_cart"><i class="fa-solid fa-filter fa-2xl"></i></button> -->
- <div class="dropdown ms-2">
-            <button class="btn" type="button" id="filterIcon" data-bs-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              <i class="fa-solid fa-filter fa-2xl"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="filterIcon" id="filterDropdown">
-              <a class="dropdown-item" href="#" data-value="4.5">4.5 & above</a>
-              <a class="dropdown-item" href="#" data-value="4">4 & above</a>
-              <a class="dropdown-item" href="#" data-value="3">3 & above</a>
-              <a class="dropdown-item" href="#" data-value="2">2 & above</a>
-              <a class="dropdown-item" href="#" data-value="2">1 & above</a>
+        
+        <div class="dropdown ms-2">
+          <button class="btn" type="button" id="filterIcon" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fa-solid fa-filter fa-2xl"></i>
+          </button>
 
-
-            </div>
+          <div class="dropdown-menu" aria-labelledby="filterIcon" id="filterDropdown">
+            <a class="dropdown-item" href="#" data-value="4.5">4.5 & above</a>
+            <a class="dropdown-item" href="#" data-value="4">4 & above</a>
+            <a class="dropdown-item" href="#" data-value="3">3 & above</a>
+            <a class="dropdown-item" href="#" data-value="2">2 & above</a>
+            <a class="dropdown-item" href="#" data-value="2">1 & above</a>
           </div>
-        <button class="btn " type="submit" id="my_cart"><i class="fa-solid fa-cart-shopping fa-2xl"></i><span
-            class="badge bg-primary  p-1 rounded-pill count">1</span< /button>
 
-            
+        </div>
+
+
+        <button class="btn " type="submit" id="my_cart">
+          <i class="fa-solid fa-cart-shopping fa-2xl"></i>
+          
+        </button><span
+            class="badge bg-primary  p-1 rounded-pill count">1</span>
+
+
       </div>
     </nav>
 
@@ -106,17 +113,15 @@
       </div>
     </section>
 
-
-
   </header>
 
-  <div class="container-container " id="display">
-    <div id="productContainer" class="row p-3 gy-3 "></div>
+  <div class="container-container mt" id="display" style="background-color: rgb(244, 239, 239);">
+    <div id="productContainer" class="row p-3 gy-3 d-flex "></div>
   </div>
 
-  </div>
 
-  <div class="container-fluid my-3">
+
+  <div class="container-fluid my-3 mt-auto">
 
     <footer class="text-center text-lg-start ">
 

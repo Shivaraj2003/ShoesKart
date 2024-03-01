@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+
 body {
   font-family: "Poppins";
   background-color: #f1f1f1;
-  overflow-x: hidden;   
-  
+  overflow-x: hidden;      
 }
 
 h1 {
@@ -32,10 +32,6 @@ h1 {
   height: 100%;
 }
 
-/* #display{
-    margin-top: 2%;
-} */
-
 #productContainer {
   display: flex;
   flex-direction: row;
@@ -61,7 +57,6 @@ h1 {
   /* border: 1px solid #0b0a0a; */
   border-radius: 2px;
   margin-bottom: 20px;
-  margin-left: 10px;
 }
 
 .card-body {
@@ -166,10 +161,11 @@ ul {
 }
 
 .bg-image {
-  background-image: url("images/shoe9.jpg");
+  background-image: url("images/shoe5.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  
 }
 
 .checked {
@@ -221,7 +217,13 @@ a{
 }
 
 
-@media (min-width: 320px) and (max-width: 640px) {
+.badge{
+  position: relative;
+    top: -25px;
+    left: -40px 
+}
+
+/* @media (min-width: 320px) and (max-width: 640px) {
     .btn .badge {
         position: relative;
         top: -50px;
@@ -251,12 +253,10 @@ a{
         top: -27px;
         left: -27px;
     }
-}
+} */
 
 
-input[type="text"],input[type="email"],input[type="tel"] {
-  border: solid black 2px;
-}
+
 
 
 
@@ -292,7 +292,7 @@ display: none;
    
 }
 
-@media(max-width:768px){
+@media(max-width:767.8px){
   #units{
 width:40%;
 margin-top: 3%;  }
@@ -305,3 +305,4 @@ margin-top: 3%;  }
 h5{
   font-size: 1rem;
 }
+

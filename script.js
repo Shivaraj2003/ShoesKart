@@ -22,7 +22,7 @@ function displayData(items) {
     const product = items[i];
     displayContainer.innerHTML += `
       <div class="card col-md-3 p-2 cardItem " >
-        <div class="card-body shadow-lg"  style=" height:50%">
+        <div class="card-body shadow-lg "  style=" height:50%">
           <h3 class="card-title">${product.title}</h3>
           <h5 class="card-subtitle mb-2 text-body-secondary">${product.brand}</h5>
           <img src="${product.img}" class="card-img-top" alt="..."  style="height: 30%; width:100%">
@@ -80,7 +80,7 @@ function displayData(items) {
       const productId = button.id - 1; //Indexing starts from zero
 
       const cartData = JSON.parse(localStorage.getItem("cart")) || [];
-
+      
       sessionStorage.setItem("cartAmount", products[productId].price);
 
       // location.reload();
@@ -106,7 +106,7 @@ function filterProducts(searchInput) {
     displayData(filteredProducts);
     displayContainer.scrollIntoView({ behavior: "smooth" });
   } else {
-    displayContainer.innerHTML = `<h1>Out of stock</h1>`;
+    displayContainer.innerHTML = `<h2 class='text-center'>No search results found</h2>`;
     displayContainer.scrollIntoView({ behavior: "smooth" });
   }
 }

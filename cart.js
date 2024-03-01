@@ -21,7 +21,7 @@ if (cartData.length === 0) {
 
   document.querySelector('#pricing').innerHTML = '';
 } else {
-  cartContainer.innerHTML = `<div class="card-body fw-bold p-4 border border-2 border-black " id="productRow">
+  cartContainer.innerHTML = `<div class="card-body fw-bold p-4 border border-2 border-black" id="productRow">
     <div class="row d-flex justify-content-between align-items-center bg-light">
     <div class="col-md-5 col-lg-5 col-xl-5 text-center">Product Details</div>
     <div class="col-md-2 col-lg-2 col-xl-2 text-center">Units</div>
