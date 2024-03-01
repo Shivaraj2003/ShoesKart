@@ -10,7 +10,7 @@ function remove(j) {
     return object.id !== j;
   });
   localStorage.setItem('cart', JSON.stringify(newCartData));
-  location.reload();
+   location.reload();
 }
 
 if (cartData.length === 0) {
@@ -24,14 +24,14 @@ if (cartData.length === 0) {
   cartContainer.innerHTML = `<div class="card-body fw-bold p-4 border border-2 border-black" id="productRow">
     <div class="row d-flex justify-content-between align-items-center bg-light">
     <div class="col-md-5 col-lg-5 col-xl-5 text-center">Product Details</div>
-    <div class="col-md-2 col-lg-2 col-xl-2 text-center">Units</div>
+    <div class="col-md-2 col-lg-2 col-xl-2 text-center">Quantity</div>
     <div class="col-md-2 col-lg-2 col-xl-2 text-center">Price</div>
     <div class="col-md-2 col-lg-2 col-xl-2 text-center">Total Price</div>
     <div class="col-md-1 col-lg-1 col-xl-1 text-center"></div>
   </div>
   </div>`;
   for (let i = 0; i < cartData.length; i++) {
-    cartContainer.innerHTML += `<div class="card-body p-4 border border-2 border-black " >
+    cartContainer.innerHTML += `<div class="card-body p-4 mb-4 border border-2 border-black " >
         <div class="row d-flex justify-content-center align-items-center">
         
           <div class="col-md-5 col-lg-5 col-xl-5 text-center">

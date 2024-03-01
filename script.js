@@ -30,7 +30,7 @@ function displayData(items) {
           <h5 class=" m-3 p-2 border border-red border-2 shadow fw-bolder d-flex justify-content-center" style="background-color:light${product.color}">${product.color}</h5>
           <h5 class=" m-3 p-2 shadow fw-bolder d-flex justify-content-center">Price:<span>&#8377;</span>${product.price}</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <div class="d-flex justify-content-center gap-3">
+          <div class="d-flex justify-content-center gap-3 ">
           <button class="cart fw-bold shadow " id=${product.id}>Cart</button>
           <button class="buy fw-bold bg-primary shadow" id=${product.id}>Buy</button>
           </div>
@@ -80,7 +80,6 @@ function displayData(items) {
       const productId = button.id - 1; //Indexing starts from zero
 
       const cartData = JSON.parse(localStorage.getItem("cart")) || [];
-      
       sessionStorage.setItem("cartAmount", products[productId].price);
 
       // location.reload();
@@ -112,14 +111,14 @@ function filterProducts(searchInput) {
 }
 
 document.querySelector("#search").addEventListener("click", () => {
-  const searchInput = document.querySelector("#searchInp").value;
+  const searchInput = document.querySelector("#searchInput").value;
   if (searchInput.trim().length === 0) alert("Kindly enter search value");
   else {
     filterProducts(searchInput);
     //homePage.style.height = "0";
     // homePage.innerHTML = displayContainer.innerHTML;
     // displayContainer.innerHTML = '';
-    document.querySelector("#searchInp").value = "";
+    document.querySelector("#searchInput").value = "";
     //to make the display container empty
   }
 });
