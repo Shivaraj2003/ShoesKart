@@ -23,23 +23,23 @@ if (cartData.length === 0) {
 } else {
   cartContainer.innerHTML = `<div class="card-body fw-bold p-4 border border-2 border-black " id="productRow">
     <div class="row d-flex justify-content-between align-items-center bg-light">
-    <div class="col-md-2 col-lg-2 col-xl-2">Product Detail</div>
-    <div class="col-md-3 col-lg-3 col-xl-3">Quantity</div>
-    <div class="col-md-2 col-lg-2 col-xl-2">Price</div>
-    <div class="col-md-2 col-lg-2 col-xl-2">Total Price</div>
-    <div class="col-md-1 col-lg-1 col-xl-1 text-end"></div>
+    <div class="col-md-5 col-lg-5 col-xl-5 text-center">Product Details</div>
+    <div class="col-md-2 col-lg-2 col-xl-2 text-center">Units</div>
+    <div class="col-md-2 col-lg-2 col-xl-2 text-center">Price</div>
+    <div class="col-md-2 col-lg-2 col-xl-2 text-center">Total Price</div>
+    <div class="col-md-1 col-lg-1 col-xl-1 text-center"></div>
   </div>
   </div>`;
   for (let i = 0; i < cartData.length; i++) {
     cartContainer.innerHTML += `<div class="card-body p-4 border border-2 border-black " >
-        <div class="row d-flex justify-content-between align-items-center">
+        <div class="row d-flex justify-content-center align-items-center">
         
-          <div class="col-md-2 col-lg-2 col-xl-2">
-            <img src=${cartData[i].img} class="card-img-top  " alt="Shoez" style="height: 30%; width:100%"/>
+          <div class="col-md-5 col-lg-5 col-xl-5 text-center">
+            <img src=${cartData[i].img} class="card-img-top" alt="Shoez" style="height: 100px; width:150px"/>
             
-          </div>
+          
 
-          <div class="col-md-3 col-lg-3 col-xl-3">
+          
             <p class="lead fw-normal fw-bold mb-2">${cartData[i].title}</p>
             <span>
               <span ">Size:${cartData[i].size}</span>
@@ -48,27 +48,26 @@ if (cartData.length === 0) {
             </span>
           </div>
 
-          <div class="col-md-3 col-lg-2 col-xl-2 mb-2 d-flex">
+          <div class="col-md-2 col-lg-2 col-xl-2 mb-2 d-flex text-center" id="units">
             <button class="btn btn-link px-2" id="decrement" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
               <i class="fas fa-minus"></i>
             </button>
 
-            <input id="form1${i}" min="1"  value="1" type="number" class="form-control form-control-sm" />
+            <input id="form1${i}" min="1"  value="1" type="number" class="form-control form-control-sm text-center" />
 
             <button id = "increment" class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
               <i class="fas fa-plus"></i>
             </button>
           </div>
 
-          <div class="col-md-3 col-lg-2 col-xl-2 " id='mg'>
+          <div class="col-md-2 col-lg-2 col-xl-2 text-center" id='mg'>
             <span id='media1' class="fw-bold">Unit Price: </span>
-
             <h5 class="mb-0">&#8377;${cartData[i].price}</h5>
           </div>
 
-           <div class="col-md-3 col-lg-2 col-xl-2 ">
+           <div class="col-md-2 col-lg-2 col-xl-2 text-center">
            <span id='media1' class="fw-bold">Total Price: </span>
-            <h5 >&#8377;<span id = 'total${i}' class="mb-0">${cartData[i].price}</span></h5>
+            <h5 class= 'm-0'>&#8377;<span id = 'total${i}' >${cartData[i].price}</span></h5>
           </div>
 
           <div id="removeButton${i}" class="col-md-1 col-lg-1 col-xl-1 text-end remove")">
