@@ -251,10 +251,11 @@ display: none;
 
 #pay{
 
-  background-color: rgb(223, 235, 235);
-  font-weight: bold;
-  padding: 3px;
-  font-size: 2rem;
+  display: block;
+  font-weight: bolder;
+  padding: 1px;
+  font-size: 1.5rem;
+  border: none;
 }
 
 @media(min-width:768px){
