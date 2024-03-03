@@ -29,8 +29,8 @@ function displayData(items) {
           <h5 class=" m-3 p-2 border  border-2 shadow fw-bolder d-flex justify-content-center">${product.rating} <span class="fa fa-star checked"></span></h5>
           <h5 class=" m-3 p-2 border border-red border-2 shadow fw-bolder d-flex justify-content-center" style="background-color:light${product.color}">${product.color}</h5>
           <h5 class=" m-3 p-2 shadow fw-bolder d-flex justify-content-center">Price:<span>&#8377;</span>${product.price}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <div class="d-flex justify-content-center gap-3 ">
+          <p class="card-text mb-auto">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div class="d-flex justify-content-center gap-3">
           <button class="cart fw-bold shadow " id=${product.id}>Cart</button>
           <button class="buy fw-bold bg-primary shadow" id=${product.id}>Buy</button>
           </div>
