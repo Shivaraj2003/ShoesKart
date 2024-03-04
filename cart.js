@@ -1,16 +1,16 @@
-var cartContainer = document.querySelector('#cartContainer');
-var totalPriceSpan = document.getElementById('totalPrice');
+var cartContainer = document.querySelector("#cartContainer");
+var totalPriceSpan = document.getElementById("totalPrice");
 let totalPrice = 0;
-cartContainer.innerHTML = '';
-let cartData = JSON.parse(localStorage.getItem('cart')) || [];
+cartContainer.innerHTML = "";
+let cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
 // console.log(typeof cartData);
 function remove(j) {
   const newCartData = cartData.filter((object) => {
     return object.id !== j;
   });
-  localStorage.setItem('cart', JSON.stringify(newCartData));
-   location.reload();
+  localStorage.setItem("cart", JSON.stringify(newCartData));
+  location.reload();
 }
 
 if (cartData.length === 0) {
@@ -19,7 +19,7 @@ if (cartData.length === 0) {
         <a href="index.html"><button type="button" class="btn btn-primary mb-3 fw-bold">Go to Home Page</button></a>
       </div>`;
 
-  document.querySelector('#pricing').innerHTML = '';
+  document.querySelector("#pricing").innerHTML = "";
 } else {
   cartContainer.innerHTML = `<div class="card-body fw-bold p-4 border border-2 border-black" id="productRow">
     <div class="row d-flex justify-content-between align-items-center bg-light">
@@ -82,51 +82,50 @@ if (cartData.length === 0) {
   }
 
   totalPriceSpan.innerText = totalPrice;
-  sessionStorage.setItem('cartAmount', totalPrice);
+  sessionStorage.setItem("cartAmount", totalPrice);
 }
 
 const removeButton = document.querySelectorAll(`.remove`);
 
 for (let i = 0; i < cartData.length; i++) {
   const btnRemove = removeButton[i];
-  btnRemove.addEventListener('click', () => {
+  btnRemove.addEventListener("click", () => {
     remove(cartData[i].id);
   });
 }
 
 function update(i) {
-  const increment = document.querySelectorAll('#increment');
-
-  const decrement = document.querySelectorAll('#decrement');
-
+  const increment = document.querySelectorAll("#increment");
+  const decrement = document.querySelectorAll("#decrement");
   let totalPrice = 0;
 
   for (let i = 0; i < decrement.length; i++) {
     const button1 = decrement[i];
     const button2 = increment[i];
-    button1.addEventListener('click', () => {
-      console.log('clicked');
+    button1.addEventListener("click", () => {
+      console.log("clicked");
       const val = document.getElementById(`form1${i}`).value;
       console.log(typeof Number(val));
       //document.getElementById(`total${i}`).innerText = document.getElementById('media1').innerText;
-      document.getElementById(`total${i}`).innerText = cartData[i].price * Number(val);
+      document.getElementById(`total${i}`).innerText =
+        cartData[i].price * Number(val);
       updateTotal();
     });
 
-    button2.addEventListener('click', () => {
+    button2.addEventListener("click", () => {
       // console.log('clicked');
       const val = document.getElementById(`form1${i}`).value;
       console.log(typeof Number(val));
-      document.getElementById(`total${i}`).innerText = cartData[i].price * Number(val);
+      document.getElementById(`total${i}`).innerText =
+        cartData[i].price * Number(val);
       updateTotal();
     });
   }
 }
 
 function updateTotal() {
-  cartData = JSON.parse(localStorage.getItem('cart')) || [];
+  cartData = JSON.parse(localStorage.getItem("cart")) || [];
   var amt = 0;
-
   for (let j = 0; j < cartData.length; j++) {
     let temp = Number(document.getElementById(`total${j}`).innerText);
     console.log(typeof temp);
@@ -135,5 +134,5 @@ function updateTotal() {
   }
 
   totalPriceSpan.innerText = amt;
-  sessionStorage.setItem('cartAmount', amt);
+  sessionStorage.setItem("cartAmount", amt);
 }
