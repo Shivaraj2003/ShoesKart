@@ -1,7 +1,7 @@
 const displayContainer = document.getElementById("productContainer");
 const homePage = document.getElementById("cover");
 const count = document.querySelector(".badge");
-  var filterDropdown = document.getElementById('filterDropdown');
+var filterDropdown = document.getElementById('filterDropdown');
 
 var products;
 
@@ -28,7 +28,9 @@ function displayData(items) {
           <img src="${product.img}" class="card-img-top" alt="..."  style="height: 30%; width:100%">
           <h5 class=" m-3 p-2 border  border-2 shadow fw-bolder d-flex justify-content-center">${product.rating} <span class="fa fa-star checked"></span></h5>
           <h5 class=" m-3 p-2 border border-red border-2 shadow fw-bolder d-flex justify-content-center" style="background-color:light${product.color}">${product.color}</h5>
-          <h5 class=" m-3 p-2 shadow fw-bolder d-flex justify-content-center">Price:<span>&#8377;</span>${product.price}</h5>
+          <h5 class=" m-3 p-2 shadow fw-bolder d-flex justify-content-center">
+          ${product.discount ? `<span style="color:green;">${product.discount}% OFF</span>&nbsp;<s>&#8377;${product.price}</s> &nbsp;  &#8377;`+Math.floor(product.price-(product.discount*product.price)/100) : `&#8377;` +product.price}
+          </h5>
           <p class="card-text mb-auto">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <div class="d-flex justify-content-center gap-3">
           <button class="cart fw-bold shadow " id=${product.id}>Cart</button>
@@ -96,7 +98,7 @@ function filterProducts(searchInput) {
   for (let i = 0; i < products.length; i++) {
     if (
       products[i].title.toLowerCase().includes(searchInput.toLowerCase()) ||
-      products[i].brand.toLowerCase().includes(searchInput.toLowerCase())     ) {
+      products[i].brand.toLowerCase().includes(searchInput.toLowerCase())) {
       filteredProducts.push(products[i]);
     }
   }
@@ -123,20 +125,20 @@ document.querySelector("#search").addEventListener("click", () => {
   }
 });
 
-filterDropdown.addEventListener('click', function(e) {
-    if (e.target.classList.contains('dropdown-item')) {
-      var selectedValue = e.target.getAttribute('data-value');
-      sortItems(selectedValue);
-      console.log('Selected Value:', selectedValue);
-    }
-  });
+filterDropdown.addEventListener('click', function (e) {
+  if (e.target.classList.contains('dropdown-item')) {
+    var selectedValue = e.target.getAttribute('data-value');
+    sortItems(selectedValue);
+    console.log('Selected Value:', selectedValue);
+  }
+});
 
-  
+
 function sortItems(sI) {
   let sorted = [];
 
   for (let i = 0; i < products.length; i++) {
-    if (products[i].rating>=Number(sI))      {
+    if (products[i].rating >= Number(sI)) {
       sorted.push(products[i]);
     }
   }
@@ -157,4 +159,3 @@ document.querySelector("#my_cart").addEventListener("click", () => {
 });
 
 
- 

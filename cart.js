@@ -1,6 +1,9 @@
 var cartContainer = document.querySelector("#cartContainer");
 var totalPriceSpan = document.getElementById("totalPrice");
+var discSpan = document.getElementById("disc");
+
 let totalPrice = 0;
+let noDisc=0;
 cartContainer.innerHTML = "";
 let cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -62,12 +65,14 @@ if (cartData.length === 0) {
 
           <div class="col-md-2 col-lg-2 col-xl-2 text-center" id='mg'>
             <span id='media1' class="fw-bold">Unit Price: </span>
-            <h5 class="mb-0">&#8377;${cartData[i].price}</h5>
+            <h5 class="mb-0">${cartData[i].discount ? `<span style="color:green;">${cartData[i].discount}% OFF</span>&nbsp;<s>&#8377;${cartData[i].price}</s> &nbsp;  &#8377;`+Math.floor(cartData[i].price-(cartData[i].discount*cartData[i].price)/100) : `&#8377;` +cartData[i].price}
+</h5>
           </div>
 
            <div class="col-md-2 col-lg-2 col-xl-2 text-center">
            <span id='media1' class="fw-bold">Total Price: </span>
-            <h5 class= 'm-0'>&#8377;<span id = 'total${i}' >${cartData[i].price}</span></h5>
+           
+            <h5 class= 'm-0'>&#8377;<span id = 'total${i}' >${cartData[i].discount ? +Math.floor(cartData[i].price-(cartData[i].discount*cartData[i].price)/100) : +cartData[i].price}</span></h5>
           </div>
 
           <div id="removeButton${i}" class="col-md-1 col-lg-1 col-xl-1 text-end remove")">
@@ -77,11 +82,18 @@ if (cartData.length === 0) {
       </div>`;
 
     update(i);
-
+  if(!cartData[i].discount)
     totalPrice += cartData[i].price;
+  else
+  {
+    totalPrice+= Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100)
+  }
+  noDisc+=cartData[i].price;
   }
 
   totalPriceSpan.innerText = totalPrice;
+  discSpan.innerText = noDisc;
+
   sessionStorage.setItem("cartAmount", totalPrice);
 }
 
@@ -107,8 +119,9 @@ function update(i) {
       const val = document.getElementById(`form1${i}`).value;
       console.log(typeof Number(val));
       //document.getElementById(`total${i}`).innerText = document.getElementById('media1').innerText;
-      document.getElementById(`total${i}`).innerText =
-        cartData[i].price * Number(val);
+      document.getElementById(`total${i}`).innerText =cartData[i].discount?Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100)*Number(val):cartData[i].price * Number(val);
+        if(Number(val)>0)
+        noDisc-= cartData[i].price;
       updateTotal();
     });
 
@@ -116,8 +129,8 @@ function update(i) {
       // console.log('clicked');
       const val = document.getElementById(`form1${i}`).value;
       console.log(typeof Number(val));
-      document.getElementById(`total${i}`).innerText =
-        cartData[i].price * Number(val);
+      document.getElementById(`total${i}`).innerText =cartData[i].discount?Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100)*Number(val):cartData[i].price * Number(val);
+      noDisc+= cartData[i].price;
       updateTotal();
     });
   }
@@ -130,9 +143,13 @@ function updateTotal() {
     let temp = Number(document.getElementById(`total${j}`).innerText);
     console.log(typeof temp);
     amt += temp;
+    
+    
     console.log(document.getElementById(`total${j}`).innerText);
   }
 
+
+  discSpan.innerText = noDisc;
   totalPriceSpan.innerText = amt;
   sessionStorage.setItem("cartAmount", amt);
 }
