@@ -2,10 +2,14 @@ const displayContainer = document.getElementById("productContainer");
 const homePage = document.getElementById("cover");
 const count = document.querySelector(".badge");
 var filterDropdown = document.getElementById('filterDropdown');
-sessionStorage.setItem('isLoggedIn','false');
+
+if(sessionStorage.getItem('isLoggedIn')!=='true'){
+   sessionStorage.setItem('isLoggedIn','false');
+}
 
 var products;
 var users;
+
 
 async function loadDataAndDisplay() {
   try {
@@ -24,12 +28,34 @@ async function loadUsers() {
     const data = await res.json();
     users = data.users;
     console.log(users.length);
+    login(users);
     
   } catch (error) {
     console.error("Error fetching or parsing data:", error);
   }
 }
 
+function login(users){
+  let success = false;
+  const enteredUsername = prompt('Please enter your username:');
+  const enteredPassword = prompt('Please enter your password:');
+  for(let i=0;i<users.length;i++)
+  {
+    if(users[i].username===enteredUsername && users[i].password==enteredPassword)
+    {
+      alert('login successful');
+      sessionStorage.setItem('isLoggedIn','true');
+      success = true;
+      break;
+    } 
+
+  }
+  if(!success)
+  {
+    alert('I dont know who you are');
+    //login(users);
+  }
+}
 
 
 function displayData(items) {
@@ -74,8 +100,7 @@ function displayData(items) {
       loadUsers();
 
       
-    // const enteredUsername = prompt('Please enter your username:');
-    // const enteredPassword = prompt('Please enter your password:');
+   
 
     //console.log(users.length);
     
@@ -124,13 +149,24 @@ function displayData(items) {
   for (let i = 0; i < buyItems.length; i++) {
     const button = buyItems[i];
     button.addEventListener("click", () => {
-      const productId = button.id - 1; //Indexing starts from zero
+if(sessionStorage.getItem('isLoggedIn')==='false'){
+loadUsers();
+}
+    else  
+    {const productId = button.id - 1; //Indexing starts from zero
+    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+let amount ;
+  if(!products[productId].discount)
+  {
+    amount = products[productId].price;
+  }
+  else{
+    amount = Math.floor(products[productId].price-(products[productId].price*products[productId].discount)/100);
+  }
 
-      const cartData = JSON.parse(localStorage.getItem("cart")) || [];
-      sessionStorage.setItem("cartAmount", products[productId].price);
-
-      // location.reload();
-      window.location.href = "payment.html";
+    sessionStorage.setItem("cartAmount", amount);
+    // location.reload();
+    window.location.href = "payment.html";}
     });
   }
 }
@@ -200,7 +236,10 @@ function sortItems(sI) {
 
 
 document.querySelector("#my_cart").addEventListener("click", () => {
-  window.location.href = "cart.html";
+  if(sessionStorage.getItem('isLoggedIn')==='true')
+      window.location.href = "cart.html";
+  else
+    loadUsers();
 });
 
 

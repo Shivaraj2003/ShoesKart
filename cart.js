@@ -87,7 +87,7 @@ if (cartData.length === 0) {
     totalPrice += cartData[i].price;
   else
   {
-    totalPrice+= Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100)
+    totalPrice+= Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100);
   }
     noDisc+=cartData[i].price;
   }
