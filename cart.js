@@ -65,8 +65,9 @@ if (cartData.length === 0) {
 
           <div class="col-md-2 col-lg-2 col-xl-2 text-center" id='mg'>
             <span id='media1' class="fw-bold">Unit Price: </span>
-            <h5 class="mb-0">${cartData[i].discount ? `<span style="color:green;">${cartData[i].discount}% OFF</span>&nbsp;<s>&#8377;${cartData[i].price}</s> &nbsp;  &#8377;`+Math.floor(cartData[i].price-(cartData[i].discount*cartData[i].price)/100) : `&#8377;` +cartData[i].price}
-</h5>
+            <h5><span style="color:green;" class="text-bold shadow
+            ">${cartData[i].discount}% OFF</span></h5>
+            <h5 class="mb-0">${cartData[i].discount ? `<s>&#8377;${cartData[i].price}</s> &nbsp;  &#8377;`+Math.floor(cartData[i].price-(cartData[i].discount*cartData[i].price)/100) : `&#8377;` +cartData[i].price}</h5>
           </div>
 
            <div class="col-md-2 col-lg-2 col-xl-2 text-center">
@@ -81,14 +82,14 @@ if (cartData.length === 0) {
         </div>
       </div>`;
 
-    update(i);
+  update(i);
   if(!cartData[i].discount)
     totalPrice += cartData[i].price;
   else
   {
     totalPrice+= Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100)
   }
-  noDisc+=cartData[i].price;
+    noDisc+=cartData[i].price;
   }
 
   totalPriceSpan.innerText = totalPrice;
@@ -111,18 +112,21 @@ function update(i) {
   const decrement = document.querySelectorAll("#decrement");
   let totalPrice = 0;
 
+
   for (let i = 0; i < decrement.length; i++) {
     const button1 = decrement[i];
     const button2 = increment[i];
     button1.addEventListener("click", () => {
-      console.log("clicked");
+     // console.log("clicked");
       const val = document.getElementById(`form1${i}`).value;
-      console.log(typeof Number(val));
+      //console.log(typeof Number(val));
       //document.getElementById(`total${i}`).innerText = document.getElementById('media1').innerText;
       document.getElementById(`total${i}`).innerText =cartData[i].discount?Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100)*Number(val):cartData[i].price * Number(val);
-        if(Number(val)>0)
-        noDisc-= cartData[i].price;
+        
+        console.log(Number(val))
+      //noDisc-= cartData[i].price;
       updateTotal();
+      updateDiscount();
     });
 
     button2.addEventListener("click", () => {
@@ -130,9 +134,13 @@ function update(i) {
       const val = document.getElementById(`form1${i}`).value;
       console.log(typeof Number(val));
       document.getElementById(`total${i}`).innerText =cartData[i].discount?Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100)*Number(val):cartData[i].price * Number(val);
-      noDisc+= cartData[i].price;
+     // noDisc+= cartData[i].price;
       updateTotal();
+      updateDiscount();
     });
+
+    //noDisc = Number(val)*cartData[i];
+
   }
 }
 
@@ -141,15 +149,26 @@ function updateTotal() {
   var amt = 0;
   for (let j = 0; j < cartData.length; j++) {
     let temp = Number(document.getElementById(`total${j}`).innerText);
-    console.log(typeof temp);
     amt += temp;
-    
-    
     console.log(document.getElementById(`total${j}`).innerText);
   }
 
 
-  discSpan.innerText = noDisc;
+  
   totalPriceSpan.innerText = amt;
   sessionStorage.setItem("cartAmount", amt);
+}
+
+
+function updateDiscount(){
+  var discount =0;
+    for (let i = 0; i < decrement.length; i++) {
+          const val = document.getElementById(`form1${i}`).value;
+          discount+=Number(val)*cartData[i].price;
+
+
+
+
+    }
+    discSpan.innerText = discount;
 }

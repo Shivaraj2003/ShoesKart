@@ -2,8 +2,10 @@ const displayContainer = document.getElementById("productContainer");
 const homePage = document.getElementById("cover");
 const count = document.querySelector(".badge");
 var filterDropdown = document.getElementById('filterDropdown');
+sessionStorage.setItem('isLoggedIn','false');
 
 var products;
+var users;
 
 async function loadDataAndDisplay() {
   try {
@@ -15,6 +17,20 @@ async function loadDataAndDisplay() {
     console.error("Error fetching or parsing data:", error);
   }
 }
+
+async function loadUsers() {
+  try {
+    const res = await fetch("users.json");
+    const data = await res.json();
+    users = data.users;
+    console.log(users.length);
+    
+  } catch (error) {
+    console.error("Error fetching or parsing data:", error);
+  }
+}
+
+
 
 function displayData(items) {
   displayContainer.innerHTML = ``;
@@ -29,7 +45,7 @@ function displayData(items) {
           <h5 class=" m-3 p-2 border  border-2 shadow fw-bolder d-flex justify-content-center">${product.rating} <span class="fa fa-star checked"></span></h5>
           <h5 class=" m-3 p-2 border border-red border-2 shadow fw-bolder d-flex justify-content-center" style="background-color:light${product.color}">${product.color}</h5>
           <h5 class=" m-3 p-2 shadow fw-bolder d-flex justify-content-center">
-          ${product.discount ? `<span style="color:green;">${product.discount}% OFF</span>&nbsp;<s>&#8377;${product.price}</s> &nbsp;  &#8377;`+Math.floor(product.price-(product.discount*product.price)/100) : `&#8377;` +product.price}
+          ${product.discount ? `<span style="color:green;" class="shadow border border-1">${product.discount}% OFF</span>&nbsp;&nbsp;<s>&#8377;${product.price}</s> &nbsp;  &#8377;`+Math.floor(product.price-(product.discount*product.price)/100) : `&#8377;` +product.price}
           </h5>
           <p class="card-text mb-auto">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <div class="d-flex justify-content-center gap-3">
@@ -49,8 +65,35 @@ function displayData(items) {
   for (let i = 0; i < cartItems.length; i++) {
     const button = cartItems[i];
     button.addEventListener("click", () => {
+     let isLoggedIn = sessionStorage.getItem('isLoggedIn');
+  console.log(isLoggedIn);
+
+     if(isLoggedIn === 'false')
+     {
+      alert('Login needed');
+      loadUsers();
+
+      
+    // const enteredUsername = prompt('Please enter your username:');
+    // const enteredPassword = prompt('Please enter your password:');
+
+    //console.log(users.length);
+    
+
+// if(enteredPassword==1234 && enteredUsername==="Shivaraj"){
+//   alert('Login successfully');
+//   sessionStorage.setItem('isLoggedIn','true');
+
+// }
+// else{
+//   alert('Who r u?')
+// }
+    }
+
+     else
+{
       const productId = button.id; //Indexing starts from zero
-      console.log(button.id);
+      
 
       const cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -70,8 +113,10 @@ function displayData(items) {
 
         localStorage.setItem("cart", JSON.stringify(cartData));
 
-        location.reload();
+        const cartCount = cartData.length;
+            count.innerHTML = cartCount;
       }
+    }
     });
   }
 
