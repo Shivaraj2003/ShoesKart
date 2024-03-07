@@ -22,40 +22,40 @@ async function loadDataAndDisplay() {
   }
 }
 
-async function loadUsers() {
-  try {
-    const res = await fetch("users.json");
-    const data = await res.json();
-    users = data.users;
-    console.log(users.length);
-    login(users);
+// async function loadUsers() {
+//   try {
+//     const res = await fetch("users.json");
+//     const data = await res.json();
+//     users = data.users;
+//     console.log(users.length);
+//     login(users);
     
-  } catch (error) {
-    console.error("Error fetching or parsing data:", error);
-  }
-}
+//   } catch (error) {
+//     console.error("Error fetching or parsing data:", error);
+//   }
+// }
 
-function login(users){
-  let success = false;
-  const enteredUsername = prompt('Please enter your username:');
-  const enteredPassword = prompt('Please enter your password:');
-  for(let i=0;i<users.length;i++)
-  {
-    if(users[i].username===enteredUsername && users[i].password==enteredPassword)
-    {
-      alert('login successful');
-      sessionStorage.setItem('isLoggedIn','true');
-      success = true;
-      break;
-    } 
+// function login(users){
+//   let success = false;
+//   const enteredUsername = prompt('Please enter your username:');
+//   const enteredPassword = prompt('Please enter your password:');
+//   for(let i=0;i<users.length;i++)
+//   {
+//     if(users[i].username===enteredUsername && users[i].password==enteredPassword)
+//     {
+//       alert('login successful');
+//       sessionStorage.setItem('isLoggedIn','true');
+//       success = true;
+//       break;
+//     } 
 
-  }
-  if(!success)
-  {
-    alert('I dont know who you are');
-    //login(users);
-  }
-}
+//   }
+//   if(!success)
+//   {
+//     alert('I dont know who you are');
+//     //login(users);
+//   }
+// }
 
 
 function displayData(items) {
@@ -97,9 +97,9 @@ function displayData(items) {
      if(isLoggedIn === 'false')
      {
       alert('Login needed');
-      loadUsers();
+      //loadUsers();
 
-      
+      window.location.href = 'login.html';
    
 
     //console.log(users.length);
@@ -150,7 +150,8 @@ function displayData(items) {
     const button = buyItems[i];
     button.addEventListener("click", () => {
 if(sessionStorage.getItem('isLoggedIn')==='false'){
-loadUsers();
+alert('login needed');
+window.location.href = 'login.html';
 }
     else  
     {const productId = button.id - 1; //Indexing starts from zero
@@ -239,7 +240,11 @@ document.querySelector("#my_cart").addEventListener("click", () => {
   if(sessionStorage.getItem('isLoggedIn')==='true')
       window.location.href = "cart.html";
   else
-    loadUsers();
+    
+    {
+      alert('login needed');
+      window.location.href ='login.html';
+    }
 });
 
 
