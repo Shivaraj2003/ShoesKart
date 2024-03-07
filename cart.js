@@ -65,15 +65,14 @@ if (cartData.length === 0) {
 
           <div class="col-md-2 col-lg-2 col-xl-2 text-center" id='mg'>
             <span id='media1' class="fw-bold">Unit Price: </span>
-            <h5><span style="color:green;" class="text-bold shadow
-            ">${cartData[i].discount}% OFF</span></h5>
+            ${cartData[i].discount?`<h5><span style="color:green;" class="text-bold shadow">${cartData[i].discount}% OFF</span></h5>`:''}
             <h5 class="mb-0">${cartData[i].discount ? `<s>&#8377;${cartData[i].price}</s> &nbsp;  &#8377;`+Math.floor(cartData[i].price-(cartData[i].discount*cartData[i].price)/100) : `&#8377;` +cartData[i].price}</h5>
           </div>
 
            <div class="col-md-2 col-lg-2 col-xl-2 text-center">
            <span id='media1' class="fw-bold">Total Price: </span>
            
-            <h5 class= 'm-0'>&#8377;<span id = 'total${i}' >${cartData[i].discount ? +Math.floor(cartData[i].price-(cartData[i].discount*cartData[i].price)/100) : +cartData[i].price}</span></h5>
+            <h5 class= 'm-0'>&#8377;<span id = 'total${i}' >${cartData[i].discount ? + Math.floor(cartData[i].price-(cartData[i].discount*cartData[i].price)/100) : +cartData[i].price}</span></h5>
           </div>
 
           <div id="removeButton${i}" class="col-md-1 col-lg-1 col-xl-1 text-end remove")">
