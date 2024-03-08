@@ -9,6 +9,10 @@ if(sessionStorage.getItem('isLoggedIn')!=='true' || sessionStorage.getItem('isLo
    sessionStorage.setItem('isLoggedIn','false');
 }
 
+if(sessionStorage.getItem('isLoggedIn')==='true')
+{
+  document.getElementById('loginAlert').style.display='none';
+}
 var products;
 var users;
 
@@ -172,9 +176,16 @@ document.querySelector("#search").addEventListener("click", () => {
     //homePage.style.height = "0";
     // homePage.innerHTML = displayContainer.innerHTML;
     // displayContainer.innerHTML = '';
-    document.querySelector("#searchInput").value = "";
+    //document.querySelector("#searchInput").value = "";
     //to make the display container empty
   }
+
+});
+
+document.getElementById("searchInput").addEventListener("search", ()=> {
+  loadDataAndDisplay();
+      displayContainer.scrollIntoView({ behavior: "smooth" });
+
 });
 
 filterDropdown.addEventListener('click', function (e) {
@@ -232,8 +243,9 @@ document.querySelector("#my_profile").addEventListener("click", () => {
 explore.addEventListener('click',()=>
 {
  // location.reload();
-    displayContainer.scrollIntoView({ behavior: "smooth" });
      loadDataAndDisplay();
+         displayContainer.scrollIntoView({ behavior: "smooth" });
+
 
 
 })
