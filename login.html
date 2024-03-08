@@ -64,13 +64,18 @@
             <div class="form-outline mb-4 ">
                 <label class="form-label" for="username">Username</label>
               <input type="email" id="username" class="form-control form-control-lg border border-2 border-black shadow" />
-              
+               <div id="error-username" class="alert alert-danger mt-2" role="alert" style="display: none;">
+                
+                  </div>
             </div>
 
             <div class="form-outline mb-4">
-                              <label class="form-label" for="password">Password</label>
+                <label class="form-label" for="password">Password</label>
 
               <input type="password" id="password" class="form-control form-control-lg border border-2 border-black shadow" />
+              <div id="error-password" class="alert alert-danger mt-2" role="alert" style="display: none;">
+  
+</div>
             </div>
 
             <!-- Checkbox -->
@@ -79,7 +84,7 @@
             <button class="  btn btn-primary btn-lg btn-block" id="login" type="submit">Login</button>
 
             <div id="error-message" class="alert alert-danger mt-2" role="alert" style="display: none;">
-  Invalid Credentials. Please check your username and password.
+  
 </div>
 
 

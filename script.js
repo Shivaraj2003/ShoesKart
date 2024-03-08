@@ -3,7 +3,7 @@ const homePage = document.getElementById("cover");
 const count = document.querySelector(".badge");
 var filterDropdown = document.getElementById('filterDropdown');
 
-if(sessionStorage.getItem('isLoggedIn')!=='true'){
+if(sessionStorage.getItem('isLoggedIn')!=='true' || sessionStorage.getItem('isLoggedIn')===null){
    sessionStorage.setItem('isLoggedIn','false');
 }
 
@@ -22,40 +22,6 @@ async function loadDataAndDisplay() {
   }
 }
 
-// async function loadUsers() {
-//   try {
-//     const res = await fetch("users.json");
-//     const data = await res.json();
-//     users = data.users;
-//     console.log(users.length);
-//     login(users);
-    
-//   } catch (error) {
-//     console.error("Error fetching or parsing data:", error);
-//   }
-// }
-
-// function login(users){
-//   let success = false;
-//   const enteredUsername = prompt('Please enter your username:');
-//   const enteredPassword = prompt('Please enter your password:');
-//   for(let i=0;i<users.length;i++)
-//   {
-//     if(users[i].username===enteredUsername && users[i].password==enteredPassword)
-//     {
-//       alert('login successful');
-//       sessionStorage.setItem('isLoggedIn','true');
-//       success = true;
-//       break;
-//     } 
-
-//   }
-//   if(!success)
-//   {
-//     alert('I dont know who you are');
-//     //login(users);
-//   }
-// }
 
 
 function displayData(items) {

@@ -2,8 +2,15 @@ var cartContainer = document.querySelector("#cartContainer");
 var totalPriceSpan = document.getElementById("totalPrice");
 var discSpan = document.getElementById("disc");
 
+if (
+  sessionStorage.getItem("isLoggedIn") !== "true" ||
+  sessionStorage.getItem("isLoggedIn") === null
+) {
+  window.location.href = "index.html";
+}
+
 let totalPrice = 0;
-let noDisc=0;
+let noDisc = 0;
 cartContainer.innerHTML = "";
 let cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -24,7 +31,7 @@ if (cartData.length === 0) {
 
   document.querySelector("#pricing").innerHTML = "";
 } else {
-  cartContainer.innerHTML = `<div class="card-body fw-bold p-4 border border-2 border-black" id="productRow">
+  cartContainer.innerHTML = `<div class="card-body fw-bold p-4 " id="productRow">
     <div class="row d-flex justify-content-between align-items-center bg-light">
     <div class="col-md-5 col-lg-5 col-xl-5 text-center">Product Details</div>
     <div class="col-md-2 col-lg-2 col-xl-2 text-center">Quantity</div>
@@ -34,11 +41,13 @@ if (cartData.length === 0) {
   </div>
   </div>`;
   for (let i = 0; i < cartData.length; i++) {
-    cartContainer.innerHTML += `<div class="card-body p-4 mb-4 border border-2 border-black " >
+    cartContainer.innerHTML += `<div class="card-body shadow p-4 mb-4 border border-2 border-black " >
         <div class="row d-flex justify-content-center align-items-center">
         
           <div class="col-md-5 col-lg-5 col-xl-5 text-center">
-            <img src=${cartData[i].img} class="card-img-top" alt="Shoez" style="height: 100px; width:150px"/>
+            <img src=${
+              cartData[i].img
+            } class="card-img-top" alt="Shoez" style="height: 100px; width:150px"/>
             
           
 
@@ -65,14 +74,35 @@ if (cartData.length === 0) {
 
           <div class="col-md-2 col-lg-2 col-xl-2 text-center" id='mg'>
             <span id='media1' class="fw-bold">Unit Price: </span>
-            ${cartData[i].discount?`<h5><span style="color:green;" class="text-bold shadow">${cartData[i].discount}% OFF</span></h5>`:''}
-            <h5 class="mb-0">${cartData[i].discount ? `<s>&#8377;${cartData[i].price}</s> &nbsp;  &#8377;`+Math.floor(cartData[i].price-(cartData[i].discount*cartData[i].price)/100) : `&#8377;` +cartData[i].price}</h5>
+            ${
+              cartData[i].discount
+                ? `<h5><span style="color:green;" class="text-bold shadow">${cartData[i].discount}% OFF</span></h5>`
+                : ""
+            }
+            
+            <h5 class="mb-0">${
+              cartData[i].discount
+                ? `<s>&#8377;${cartData[i].price}</s> &nbsp;  &#8377;` +
+                  Math.floor(
+                    cartData[i].price -
+                      (cartData[i].discount * cartData[i].price) / 100
+                  )
+                : `&#8377;` + cartData[i].price
+            }</h5>
+
+            
           </div>
 
            <div class="col-md-2 col-lg-2 col-xl-2 text-center">
            <span id='media1' class="fw-bold">Total Price: </span>
            
-            <h5 class= 'm-0'>&#8377;<span id = 'total${i}' >${cartData[i].discount ? + Math.floor(cartData[i].price-(cartData[i].discount*cartData[i].price)/100) : +cartData[i].price}</span></h5>
+            <h5 class= 'm-0'>&#8377;<span id = 'total${i}' >${
+      cartData[i].discount
+        ? +Math.floor(
+            cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
+          )
+        : +cartData[i].price
+    }</span></h5>
           </div>
 
           <div id="removeButton${i}" class="col-md-1 col-lg-1 col-xl-1 text-end remove")">
@@ -81,18 +111,24 @@ if (cartData.length === 0) {
         </div>
       </div>`;
 
-  update(i);
-  if(!cartData[i].discount)
-    totalPrice += cartData[i].price;
-  else
-  {
-    totalPrice+= Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100);
-  }
-    noDisc+=cartData[i].price;
+    update(i);
+    if (!cartData[i].discount) 
+      totalPrice += cartData[i].price;
+    else {
+      totalPrice += Math.floor(
+        cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
+      );
+    }
+    noDisc += cartData[i].price;
   }
 
   totalPriceSpan.innerText = totalPrice;
-  discSpan.innerText = noDisc;
+  if(totalPrice===noDisc)
+    discSpan.innerText = '';
+  else
+  {
+    discSpan.innerText=noDisc;
+  }
 
   sessionStorage.setItem("cartAmount", totalPrice);
 }
@@ -111,18 +147,21 @@ function update(i) {
   const decrement = document.querySelectorAll("#decrement");
   let totalPrice = 0;
 
-
   for (let i = 0; i < decrement.length; i++) {
     const button1 = decrement[i];
     const button2 = increment[i];
     button1.addEventListener("click", () => {
-     // console.log("clicked");
+      // console.log("clicked");
       const val = document.getElementById(`form1${i}`).value;
       //console.log(typeof Number(val));
       //document.getElementById(`total${i}`).innerText = document.getElementById('media1').innerText;
-      document.getElementById(`total${i}`).innerText =cartData[i].discount?Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100)*Number(val):cartData[i].price * Number(val);
-        
-        console.log(Number(val))
+      document.getElementById(`total${i}`).innerText = cartData[i].discount
+        ? Math.floor(
+            cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
+          ) * Number(val)
+        : cartData[i].price * Number(val);
+
+      console.log(Number(val));
       //noDisc-= cartData[i].price;
       updateTotal();
       updateDiscount();
@@ -132,14 +171,17 @@ function update(i) {
       // console.log('clicked');
       const val = document.getElementById(`form1${i}`).value;
       console.log(typeof Number(val));
-      document.getElementById(`total${i}`).innerText =cartData[i].discount?Math.floor(cartData[i].price - (cartData[i].discount*cartData[i].price)/100)*Number(val):cartData[i].price * Number(val);
-     // noDisc+= cartData[i].price;
+      document.getElementById(`total${i}`).innerText = cartData[i].discount
+        ? Math.floor(
+            cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
+          ) * Number(val)
+        : cartData[i].price * Number(val);
+      // noDisc+= cartData[i].price;
       updateTotal();
       updateDiscount();
     });
 
     //noDisc = Number(val)*cartData[i];
-
   }
 }
 
@@ -152,22 +194,21 @@ function updateTotal() {
     console.log(document.getElementById(`total${j}`).innerText);
   }
 
-
-  
   totalPriceSpan.innerText = amt;
   sessionStorage.setItem("cartAmount", amt);
 }
 
+function updateDiscount() {
+  var discount = 0;
+  var amt = sessionStorage.getItem('cartAmount');
+  for (let i = 0; i < decrement.length; i++) {
+    const val = document.getElementById(`form1${i}`).value;
+    discount += Number(val) * cartData[i].price;
+  }
 
-function updateDiscount(){
-  var discount =0;
-    for (let i = 0; i < decrement.length; i++) {
-          const val = document.getElementById(`form1${i}`).value;
-          discount+=Number(val)*cartData[i].price;
-
-
-
-
-    }
-    discSpan.innerText = discount;
+  if(discount==amt){
+    discSpan.innerText='';
+  }
+  else
+  discSpan.innerText = discount;
 }

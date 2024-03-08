@@ -8,6 +8,9 @@ const payAmt = sessionStorage.getItem('cartAmount');
 const payment = document.getElementsByClassName('payment');
 const count = document.querySelector(".badge");
 
+if(sessionStorage.getItem('isLoggedIn')!=='true' || sessionStorage.getItem('isLoggedIn')===null){
+   window.location.href='index.html'
+}
 pay.innerHTML = `&#8377;${payAmt}`;
 pay.disabled = true;
 
