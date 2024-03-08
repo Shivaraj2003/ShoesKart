@@ -11,6 +11,7 @@ if (
 
 let totalPrice = 0;
 let noDisc = 0;
+
 cartContainer.innerHTML = "";
 let cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -45,9 +46,8 @@ if (cartData.length === 0) {
         <div class="row d-flex justify-content-center align-items-center">
         
           <div class="col-md-5 col-lg-5 col-xl-5 text-center">
-            <img src=${
-              cartData[i].img
-            } class="card-img-top" alt="Shoez" style="height: 100px; width:150px"/>
+            <img src=${cartData[i].img
+      } class="card-img-top" alt="Shoez" style="height: 100px; width:150px"/>
             
           
 
@@ -74,21 +74,19 @@ if (cartData.length === 0) {
 
           <div class="col-md-2 col-lg-2 col-xl-2 text-center" id='mg'>
             <span id='media1' class="fw-bold">Unit Price: </span>
-            ${
-              cartData[i].discount
-                ? `<h5><span style="color:green;" class="text-bold shadow">${cartData[i].discount}% OFF</span></h5>`
-                : ""
-            }
+            ${cartData[i].discount
+        ? `<h5><span style="color:green;" class="text-bold shadow">${cartData[i].discount}% OFF</span></h5>`
+        : ""
+      }
             
-            <h5 class="mb-0">${
-              cartData[i].discount
-                ? `<s>&#8377;${cartData[i].price}</s> &nbsp;  &#8377;` +
-                  Math.floor(
-                    cartData[i].price -
-                      (cartData[i].discount * cartData[i].price) / 100
-                  )
-                : `&#8377;` + cartData[i].price
-            }</h5>
+            <h5 class="mb-0">${cartData[i].discount
+        ? `<s>&#8377;${cartData[i].price}</s> &nbsp;  &#8377;` +
+        Math.floor(
+          cartData[i].price -
+          (cartData[i].discount * cartData[i].price) / 100
+        )
+        : `&#8377;` + cartData[i].price
+      }</h5>
 
             
           </div>
@@ -96,13 +94,12 @@ if (cartData.length === 0) {
            <div class="col-md-2 col-lg-2 col-xl-2 text-center">
            <span id='media1' class="fw-bold">Total Price: </span>
            
-            <h5 class= 'm-0'>&#8377;<span id = 'total${i}' >${
-      cartData[i].discount
-        ? +Math.floor(
-            cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
-          )
+            <h5 class= 'm-0'>&#8377;<span id = 'total${i}' >${cartData[i].discount
+        ? Math.floor(
+          cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
+        )
         : +cartData[i].price
-    }</span></h5>
+      }</span></h5>
           </div>
 
           <div id="removeButton${i}" class="col-md-1 col-lg-1 col-xl-1 text-end remove")">
@@ -112,22 +109,21 @@ if (cartData.length === 0) {
       </div>`;
 
     update(i);
+
     if (!cartData[i].discount) 
       totalPrice += cartData[i].price;
     else {
-      totalPrice += Math.floor(
-        cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
-      );
+        totalPrice += Math.floor(cartData[i].price - (cartData[i].discount * cartData[i].price) / 100);
     }
     noDisc += cartData[i].price;
   }
 
   totalPriceSpan.innerText = totalPrice;
-  if(totalPrice===noDisc)
-    discSpan.innerText = '';
-  else
-  {
-    discSpan.innerText=noDisc;
+
+  if (totalPrice === noDisc) 
+      discSpan.innerText = "";
+  else {
+    discSpan.innerText = noDisc;
   }
 
   sessionStorage.setItem("cartAmount", totalPrice);
@@ -157,8 +153,8 @@ function update(i) {
       //document.getElementById(`total${i}`).innerText = document.getElementById('media1').innerText;
       document.getElementById(`total${i}`).innerText = cartData[i].discount
         ? Math.floor(
-            cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
-          ) * Number(val)
+          cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
+        ) * Number(val)
         : cartData[i].price * Number(val);
 
       console.log(Number(val));
@@ -173,8 +169,8 @@ function update(i) {
       console.log(typeof Number(val));
       document.getElementById(`total${i}`).innerText = cartData[i].discount
         ? Math.floor(
-            cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
-          ) * Number(val)
+          cartData[i].price - (cartData[i].discount * cartData[i].price) / 100
+        ) * Number(val)
         : cartData[i].price * Number(val);
       // noDisc+= cartData[i].price;
       updateTotal();
@@ -200,15 +196,13 @@ function updateTotal() {
 
 function updateDiscount() {
   var discount = 0;
-  var amt = sessionStorage.getItem('cartAmount');
-  for (let i = 0; i < decrement.length; i++) {
+  var amt = sessionStorage.getItem("cartAmount");
+  for (let i = 0; i < cartData.length; i++) {
     const val = document.getElementById(`form1${i}`).value;
     discount += Number(val) * cartData[i].price;
   }
 
-  if(discount==amt){
-    discSpan.innerText='';
-  }
-  else
-  discSpan.innerText = discount;
+  if (discount == amt) {
+    discSpan.innerText = "";
+  } else discSpan.innerText = discount;
 }

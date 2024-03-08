@@ -16,7 +16,7 @@
 <body class="d-flex flex-column min-vh-100 ">
 
   <header id="header">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navMenu">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navMenu" style="margin-bottom: 1%;">
       <div class="container-fluid ">
         <div class="container-fluid">
           <div class="d-flex justify-content-between align-items-center">
@@ -39,7 +39,7 @@
               <a class="nav-link active" aria-current="page" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#display">Shop</a>
+              <a class="nav-link" aria-current="page" href="index.html#display">Shop</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="#">About</a>
@@ -52,73 +52,58 @@
 
 
       </div>
-
-      <div class="d-flex flex-row mt-3" role="search" id="searchContainer">
-
-
-        <div id="searchBox" class="d-flex align-content-center ms-auto p-1 justify-content-center shadow">
-          <input class="form-control m-0  pe-0" type="search" placeholder="Discover Your Sole Mate..." size="50" 
-            aria-label="Search" id="searchInput">
-          <button class="btn " type="submit" id="search"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
-        </div>
-
-        <!-- <button class="btn " type="submit" id="my_cart"><i class="fa-solid fa-filter fa-2xl"></i></button> -->
-        
-        <div class="dropdown ms-2">
-          <button class="btn" type="button" id="filterIcon" data-bs-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fa-solid fa-filter fa-2xl"></i>
-          </button>
-
-          <div class="dropdown-menu" aria-labelledby="filterIcon" id="filterDropdown">
-            <a class="dropdown-item" href="#" data-value="4.5">4.5 & above</a>
-            <a class="dropdown-item" href="#" data-value="4">4 & above</a>
-            <a class="dropdown-item" href="#" data-value="3">3 & above</a>
-            <a class="dropdown-item" href="#" data-value="2">2 & above</a>
-            <a class="dropdown-item" href="#" data-value="2">1 & above</a>
-          </div>
-
-        </div>
-
-
-        <button class="btn " type="submit" id="my_cart">
-          <i class="fa-solid fa-cart-shopping fa-2xl"></i>
-          
-        </button><span
-            class="badge bg-primary  p-1 rounded-pill count">1</span>
-
-<button class="btn " type="submit" id="my_profile">
-          <i class="fa-solid fa-user fa-2xl"></i>
-      </div>
     </nav>
 
-    <section id="cover" class="container ">
-      <div class="row g-2 justify-content-around">
-        <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2 gap-2">
-          <div class="p-3">
-            <img src="images/cover.png" alt="" class="mx-auto d-block w-100 img-fluid ">
+    <!-- Profile 1 - Bootstrap Brain Component -->
+<section class="bg-light  mt-1 py-3 py-md-5 py-xl-8">
+  
+
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class=" col-lg-6 col-xl-4 col-md-6">
+        <div class="row ">
+          <div class="col-12">
+
+            <div class="card widget-card border-dark shadow-lg">
+              <div class="card-header text-bg-dark text-white text-center">Welcome</div>
+
+              <div class="card-body">
+
+                <div class="text-center mb-3">
+                  <img src="images/profile.png" class="img-fluid rounded-circle" alt="Luna John">
+                </div>
+
+                <h5 class="text-center mb-1" id="username"></h5>
+                <h6 class="text-center text-secondary mb-1" id="job"></h6>
+                <h6 class="text-center text-secondary mb-1" id="phNo"></h6>
+
+                <h6 class="text-center text-secondary mb-4" id="email"></h6>
+                
+                <div class="d-flex justify-content-around m-0">
+                  <button class="btn btn-outline-dark" id="cart" type="button">My Cart</button>
+                    <button class="btn btn-outline-dark" id="logout" type="button">Logout</button>
+
+                </div>
+
+
+              </div>
+            </div>
           </div>
-        </div>
-
-
-        <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2 ">
-          <div class="p-3">
-            <h1>ShoezKart</h1>
-            <h1>Chase your dreams</h1>
-            <p class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo, fugiat ipsum. Inventore
-              sapiente consequatur quos commodi distinctio repellendus blanditiis doloremque!</p>
-           <button id="explore" class="shadow">explore</button>
-
-          </div>
+          
+         
+          
         </div>
       </div>
-    </section>
+      
+    </div>
+  </div>
 
+</section>
+
+    
   </header>
 
-  <div class="container-container mt-auto" id="display" style="background-color: rgb(244, 239, 239);">
-    <div id="productContainer" class="row p-3 gy-3 d-flex "></div>
-  </div>
+  
 
 
 
@@ -147,7 +132,7 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
-  <script src="script.js" type="module"></script>
+  <script src="profile.js" type="module"></script>
 </body>
 
 </html>

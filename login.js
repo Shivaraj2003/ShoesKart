@@ -58,6 +58,7 @@ function login(users) {
         if (users[i].username === enteredUsername && users[i].password == enteredPassword) {
           //alert('login successful');
           sessionStorage.setItem('isLoggedIn', 'true');
+          sessionStorage.setItem('id',users[i].id);
           success = true;
           window.location.href = 'index.html';
           break;

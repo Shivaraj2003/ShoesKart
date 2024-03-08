@@ -1,11 +1,22 @@
 {
     "users":[
 
-       { "username": "Shivaraj",
-          "password": 1234
+       { "id":1,
+       "username": "shivaraj",
+       "name":"Shivaraj Shetty",
+          "password": 1234,
+          "email":"abc@gmail.com",
+          "phNo":9632645234,
+          "country":"India"
        },
-       { "username": "abc",
-          "password": 1234
+       { "id":2,
+         "username": "abhi",
+         "name":"Abhishek",
+          "password": 1234,
+          "email":"abhi@gmail.com",
+          "phNo":9632645234,
+          "country":"India"
        }
+       
     ]
 }

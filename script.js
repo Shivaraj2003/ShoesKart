@@ -3,6 +3,8 @@ const homePage = document.getElementById("cover");
 const count = document.querySelector(".badge");
 var filterDropdown = document.getElementById('filterDropdown');
 
+var explore = document.getElementById('explore');
+
 if(sessionStorage.getItem('isLoggedIn')!=='true' || sessionStorage.getItem('isLoggedIn')===null){
    sessionStorage.setItem('isLoggedIn','false');
 }
@@ -31,13 +33,15 @@ function displayData(items) {
     displayContainer.innerHTML += `
       <div class="card col-md-3 p-2 cardItem " >
         <div class="card-body shadow-lg "  style=" height:50%">
-          <h3 class="card-title">${product.title}</h3>
+     ${product.discount ? `   <span  style="color:darkgreen; background-color:lightyellow" class="text-bold shadow float-end p-1 border border-1 border-black">${product.discount}% OFF</span>`:`<span style="display:none;"></span>`}
+          <h4 class="card-title">${product.title}</h4>
           <h5 class="card-subtitle mb-2 text-body-secondary">${product.brand}</h5>
+          
           <img src="${product.img}" class="card-img-top" alt="..."  style="height: 30%; width:100%">
           <h5 class=" m-3 p-2 border  border-2 shadow fw-bolder d-flex justify-content-center">${product.rating} <span class="fa fa-star checked"></span></h5>
           <h5 class=" m-3 p-2 border border-red border-2 shadow fw-bolder d-flex justify-content-center" style="background-color:light${product.color}">${product.color}</h5>
           <h5 class=" m-3 p-2 shadow fw-bolder d-flex justify-content-center">
-          ${product.discount ? `<span style="color:green;" class="shadow border border-1">${product.discount}% OFF</span>&nbsp;&nbsp;<s>&#8377;${product.price}</s> &nbsp;  &#8377;`+Math.floor(product.price-(product.discount*product.price)/100) : `&#8377;` +product.price}
+          ${product.discount ?`&nbsp;<s>&#8377;${product.price}</s> &nbsp;  &#8377;`+Math.floor(product.price-(product.discount*product.price)/100) : `&#8377;` +product.price}
           </h5>
           <p class="card-text mb-auto">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <div class="d-flex justify-content-center gap-3">
@@ -213,4 +217,23 @@ document.querySelector("#my_cart").addEventListener("click", () => {
     }
 });
 
+document.querySelector("#my_profile").addEventListener("click", () => {
+  if(sessionStorage.getItem('isLoggedIn')==='true')
+      window.location.href = "profile.html";
+  else
+    
+    {
+      alert('login needed');
+      window.location.href ='login.html';
+    }
+});
 
+
+explore.addEventListener('click',()=>
+{
+ // location.reload();
+    displayContainer.scrollIntoView({ behavior: "smooth" });
+     loadDataAndDisplay();
+
+
+})
