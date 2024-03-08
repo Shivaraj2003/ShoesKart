@@ -65,7 +65,7 @@ if (cartData.length === 0) {
               <i class="fas fa-minus"></i>
             </button>
 
-            <input id="form1${i}" min="1"  value="1" type="number" class="form-control form-control-sm text-center" />
+            <input id="form1${i}" min="1" value="1" type="number" class="form-control form-control-sm text-center" style="width:50px;" />
 
             <button id = "increment" class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
               <i class="fas fa-plus"></i>

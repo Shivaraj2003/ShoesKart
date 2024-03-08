@@ -37,7 +37,7 @@ function displayData(items) {
     displayContainer.innerHTML += `
       <div class="card col-md-3 p-2 cardItem " >
         <div class="card-body shadow-lg "  style=" height:50%">
-     ${product.discount ? `   <span  style="color:darkgreen; background-color:lightyellow" class="text-bold shadow float-end p-1 border border-1 border-black">${product.discount}% OFF</span>`:`<span style="display:none;"></span>`}
+     ${product.discount ? `   <span  style="color:darkgreen; background-color:lime" class="text-bold shadow float-end p-1 border border-1 border-black">${product.discount}% OFF</span>`:`<span style="display:none;"></span>`}
           <h4 class="card-title">${product.title}</h4>
           <h5 class="card-subtitle mb-2 text-body-secondary">${product.brand}</h5>
           
@@ -244,7 +244,7 @@ explore.addEventListener('click',()=>
 {
  // location.reload();
      loadDataAndDisplay();
-         displayContainer.scrollIntoView({ behavior: "smooth" });
+      displayContainer.scrollIntoView({ behavior: "smooth" });
 
 
 
